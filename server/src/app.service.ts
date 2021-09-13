@@ -1,8 +1,18 @@
 import { Injectable } from '@nestjs/common';
 
+export interface WelcomeMessage {
+  message: string;
+  visitedAt: string;
+}
+
+const WELCOME_MESSAGE = {
+  message: 'Welcome to Hobbit Link API 💚',
+  visitedAt: new Date().toISOString(),
+};
+
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  getWelcome(): WelcomeMessage {
+    return WELCOME_MESSAGE;
   }
 }
