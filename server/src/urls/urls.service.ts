@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { CreateHobbitUrlDto } from './create-url.dto';
+import { CreateHobbitLinkDto } from './create-url.dto';
 
 interface CreateHobbitResponse {
   url: string;
@@ -13,7 +13,7 @@ export class UrlsService {
   }
 
   createHobbitLink(
-    createHobbitLinkDto: CreateHobbitUrlDto,
+    createHobbitLinkDto: CreateHobbitLinkDto,
   ): CreateHobbitResponse {
     this.logger.log(
       `Attempting to create a hobbit link with ${JSON.stringify(

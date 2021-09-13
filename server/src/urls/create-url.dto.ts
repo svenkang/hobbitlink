@@ -1,9 +1,9 @@
 import { IsString, IsUrl } from 'class-validator';
 
-export class CreateHobbitUrlDto {
+export class CreateHobbitLinkDto {
   @IsUrl()
   readonly url: string;
 
   @IsString()
-  readonly hobbit: string;
+  readonly hobbitLink: string;
 }
