@@ -19,17 +19,21 @@ export class HttpLoggerMiddleware implements NestMiddleware {
     request.on('readable', () => {
       requestTime = Date.now();
     });
+    request.on('error', () => {
+      requestTime = Date.now();
+    });
 
     response.on('close', () => {
       const { statusCode } = response;
       const contentLength = response.get('content-length') || '?';
       const responseTime = Date.now() - requestTime || 0;
 
-      this.logger.log(
-        `${method} ${url} ${statusCode} ${contentLength} - ${userAgent} ${ip} ${clc.yellow(
-          `~${responseTime}ms`,
-        )}`,
-      );
+      const isError = statusCode >= 400 && statusCode <= 520;
+      let message = `${method} ${url} ${statusCode} ${contentLength} - ${userAgent} ${ip}`;
+      if (isError) {
+        message = clc.red(message);
+      }
+      this.logger.log(`${message} ${clc.yellow(`~${responseTime}ms`)}`);
     });
 
     next();
