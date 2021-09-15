@@ -10,7 +10,7 @@ export class CreateHobbitLinkDto {
     new RegExp(`^[\\w-]{${HOBBIT_LINK_MIN_CHAR},${HOBBIT_LINK_MAX_CHAR}}$`),
     {
       message:
-        'The hobbitLink must be 1-5 digits of alphanumeric & underscore & hyphen',
+        'hobbitLink must be 1-5 digits of alphanumeric & underscore & hyphen',
     },
   )
   @IsOptional()
