@@ -13,11 +13,16 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
-  const port = app.get(ConfigService).get<number>('APP_PORT', { infer: true });
+  const configService = app.get(ConfigService);
+  const port = configService.get<number>('APP_PORT', { infer: true });
+  const nodeEnv = configService.get<string>('NODE_ENV', { infer: true });
   await app.listen(port);
   app
     .get(LoggerService)
-    .log(`Application listening on port ${port}`, NestApplication.name);
+    .log(
+      `Listening on port ${port} in ${nodeEnv} environment`,
+      NestApplication.name,
+    );
 }
 
 bootstrap();
