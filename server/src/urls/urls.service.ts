@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateHobbitLinkDto } from './create-url.dto';
+import { CreateHobbitLinkDto } from './urls.dto';
 import { nanoid } from 'nanoid';
 import { LoggerService } from 'src/logger/logger.service';
 

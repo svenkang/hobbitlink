@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateHobbitLinkDto } from './create-url.dto';
+import { CreateHobbitLinkDto } from './urls.dto';
 import { UrlsService, CreateHobbitResponse } from './urls.service';
 
 @Controller('urls')
