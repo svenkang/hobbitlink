@@ -9,6 +9,9 @@
 - [x] logging middleware
 - [ ] swagger api documentation
 - [ ] typeorm and repository pattern
+- [ ] docker and docker-compose
+- [ ] production optimization
+- [ ] CI CD pipeline
 
 ## Features
 - [x] create a hobbit link from a url
