@@ -3,7 +3,7 @@
 ## Capabilities
 - [x] powered by NestJS
 - [x] layered architecture
-- [x] fully typescript with linting
+- [x] full typescript with linting
 - [x] full unit test coverage
 - [x] health check endpoint
 - [x] logging middleware
@@ -11,9 +11,18 @@
 - [ ] typeorm and repository pattern
 - [ ] docker and docker-compose
 - [ ] production optimization
-- [ ] CI CD pipeline
+- [ ] cicd pipeline
+- [ ] security with helmet and cors
 
 ## Features
 - [x] create a hobbit link from a url
-- [ ] store the urls in cache
+- [ ] store the urls in mongodb
 - [ ] proxy hobbit url
+- [ ] serve the urls in cache with expiration
+
+## Advanced Features
+- [ ] require auth and login
+- [ ] add limit per user
+- [ ] track clicks 
+- [ ] track meta data
+
