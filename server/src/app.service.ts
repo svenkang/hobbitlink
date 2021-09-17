@@ -5,7 +5,7 @@ export interface WelcomeMessage {
   visitedAt: string;
 }
 
-const WELCOME_MESSAGE = {
+export const WELCOME_MESSAGE = {
   message: 'Welcome to Hobbit Link API 💚',
   visitedAt: new Date().toISOString(),
 };

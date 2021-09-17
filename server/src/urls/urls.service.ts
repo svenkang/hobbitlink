@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateHobbitLinkDto } from './urls.dto';
 import { nanoid } from 'nanoid';
-import { LoggerService } from 'src/logger/logger.service';
+import { LoggerService } from './../logger/logger.service';
 
 export const HOBBIT_LINK_MIN_CHAR = 1;
 export const HOBBIT_LINK_MAX_CHAR = 5;

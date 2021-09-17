@@ -7,10 +7,9 @@ export class UrlsController {
   constructor(private readonly urlsService: UrlsService) {}
 
   @Post()
-  postUrl(
+  createUrl(
     @Body() createHobbitLinkDto: CreateHobbitLinkDto,
   ): CreateHobbitResponse {
-    const response = this.urlsService.createHobbitLink(createHobbitLinkDto);
-    return response;
+    return this.urlsService.createHobbitLink(createHobbitLinkDto);
   }
 }
