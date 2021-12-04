@@ -16,7 +16,7 @@
 - [x] create a hobbit link from a url
 - [ ] store the urls in mongodb
 - [ ] proxy hobbit url
-- [ ] serve the urls in cache with expiration
+- [ ] serve the urls in with variable expiration
 
 ## Advanced Features
 - [ ] require auth and login
