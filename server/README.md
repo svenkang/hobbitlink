@@ -1,12 +1,12 @@
-# hobbitlink &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/facebook/react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
+# hobbitlink &middot; [![Made with](https://img.shields.io/badge/made_with-nestjs-blue.svg)](https://nestjs.com/) [![Node Version](https://img.shields.io/badge/node-v16.9.1-blue)](https://github.com/fieldnation/calculate-pay/blob/master/.nvmrc) [![Coverage](https://img.shields.io/badge/coverage-100%-brightgreen.svg)]()
 
 ## Features
-* **TypeScript:** Built fully with TypeScript 
-* **UnitTest:** Full unit test coverage
-* **Containerized:** Dockerized with health checks
-* **Secure:** Secure with helmet and cors
+* **TypeScript:** Built fully with TypeScript for scale.
+* **UnitTest:** Full unit test coverage.
+* **Containerized:** Containerized with docker and compose with health checks.
+* **Secure:** Secure with helmet and cors. No vulnerabilities in audit.
 
-## Installing
+## Installation
 ```bash
 $ git clone https://github.com/svenkang/hobbitlink.git
 $ cd hobbitlink/server
@@ -15,7 +15,7 @@ $ npm install
 
 ## Running
 ```bash
-$ docker compose up
+$ docker-compose up
 ```
 
 ## Testing
@@ -26,9 +26,9 @@ $ npm run test:e2e
 
 ## Documentation
 This service supports OpenAPI specification powered by swagger.
-After running the service, from the browser, go to `http://localhost:8080/api`
+After running the service, from the browser, go to: [http://localhost:8080/api](http://localhost:8080/api)
 
-## TODO
+## Todo
 - [x] create a hobbit link from a url
 - [ ] store the urls in mysql
 - [ ] proxy hobbit url
