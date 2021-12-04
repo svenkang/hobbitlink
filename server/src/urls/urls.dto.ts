@@ -1,8 +1,13 @@
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsOptional, IsString, IsUrl, Matches } from 'class-validator';
 import { HOBBIT_LINK_MAX_CHAR, HOBBIT_LINK_MIN_CHAR } from './urls.service';
 
 export class CreateHobbitLinkDto {
   @IsUrl()
+  @ApiProperty({
+    description: 'The url to be shortened.',
+    default: 'https://www.google.com',
+  })
   readonly url: string;
 
   @IsString()
@@ -14,5 +19,9 @@ export class CreateHobbitLinkDto {
     },
   )
   @IsOptional()
+  @ApiPropertyOptional({
+    description: 'An optional five digit hash to shorten the url to.',
+    default: 'd2_fs',
+  })
   readonly hobbitLink?: string;
 }

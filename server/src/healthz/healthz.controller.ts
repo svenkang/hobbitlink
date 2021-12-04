@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { HealthCheck, HealthCheckResult } from '@nestjs/terminus';
 import { HealthzService } from './healthz.service';
 
@@ -8,6 +9,7 @@ export class HealthzController {
 
   @Get()
   @HealthCheck()
+  @ApiTags('hobbitlink')
   async check(): Promise<HealthCheckResult> {
     return await this.healthzService.checkAll();
   }

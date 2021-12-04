@@ -7,13 +7,6 @@ import { LoggerService } from './logger/logger.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      transform: true,
-      forbidNonWhitelisted: true,
-    }),
-  );
   const configService = app.get(ConfigService);
   const port = configService.get<number>('NODE_PORT', { infer: true });
   const nodeEnv = configService.get<string>('NODE_ENV', { infer: true });
@@ -30,6 +23,14 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, swaggerConfig);
     SwaggerModule.setup('api', app, document);
   }
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
 
   await app.listen(port);
   app
