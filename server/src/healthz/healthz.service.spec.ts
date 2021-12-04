@@ -2,6 +2,7 @@ import {
   HealthCheckService,
   HealthIndicatorFunction,
   HttpHealthIndicator,
+  TypeOrmHealthIndicator,
 } from '@nestjs/terminus';
 import { Test, TestingModule } from '@nestjs/testing';
 import { HealthzService } from './healthz.service';
@@ -26,6 +27,15 @@ describe('HealthzService', () => {
         }),
     ),
   };
+  const mockDb = {
+    pingCheck: jest.fn().mockImplementation(
+      () =>
+        new Promise((resolve, reject) => {
+          resolve(mockHealthCheckResult);
+          reject({});
+        }),
+    ),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -38,6 +48,10 @@ describe('HealthzService', () => {
         {
           provide: HealthCheckService,
           useValue: mockHealth,
+        },
+        {
+          provide: TypeOrmHealthIndicator,
+          useValue: mockDb,
         },
       ],
     }).compile();

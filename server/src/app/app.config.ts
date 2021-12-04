@@ -1,14 +1,19 @@
 import { ConfigModuleOptions } from '@nestjs/config';
 import * as Joi from 'joi';
 
-export const configuration: ConfigModuleOptions = {
+export const AppConfig: ConfigModuleOptions = {
   isGlobal: true,
   ignoreEnvFile: true,
   validationSchema: Joi.object({
     NODE_PORT: Joi.number().required(),
     NODE_ENV: Joi.string().required(),
     APP_NAME: Joi.string().required(),
-    APP_VER: Joi.string().required(),
+    APP_VER: Joi.string().default('1.0.0'),
+    MYSQL_HOST: Joi.string().required(),
+    MYSQL_PORT: Joi.number().required(),
+    MYSQL_USER: Joi.string().required(),
+    MYSQL_PASSWORD: Joi.string().required(),
+    MYSQL_DATABASE: Joi.string().required(),
   }),
   validationOptions: {
     allowUnknown: true,

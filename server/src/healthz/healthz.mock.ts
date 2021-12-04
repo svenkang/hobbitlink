@@ -4,10 +4,16 @@ export const mockHealthCheckResult = {
     'nestjs-docs': {
       status: 'up',
     },
+    database: {
+      status: 'up',
+    },
   },
   error: {},
   details: {
     'nestjs-docs': {
+      status: 'up',
+    },
+    database: {
       status: 'up',
     },
   },
