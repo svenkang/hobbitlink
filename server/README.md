@@ -8,7 +8,7 @@
 - [x] health check endpoint
 - [x] logging middleware
 - [x] swagger api documentation
-- [ ] security with helmet and cors
+- [x] security with helmet and cors
 - [ ] docker and docker-compose
 - [ ] typeorm and repository pattern
 
