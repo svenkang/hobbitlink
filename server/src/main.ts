@@ -4,6 +4,7 @@ import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app/app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { LoggerService } from './logger/logger.service';
+import * as helmet from 'helmet';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -31,6 +32,8 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
+  app.use(helmet());
+  app.enableCors();
 
   await app.listen(port);
   app
