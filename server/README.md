@@ -25,11 +25,10 @@ $ npm run test:e2e
 ```
 
 ## Documentation
-This service supports OpenAPI specification powered by swagger.
+This service supports OpenAPI specification powered by swagger.\
 After running the service, from the browser, go to: [http://localhost:8080/api](http://localhost:8080/api)
 
 ## Todo
-- [x] create a hobbit link from a url
 - [ ] store the urls in mysql
 - [ ] proxy hobbit url
 - [ ] serve the urls in with variable expiration
