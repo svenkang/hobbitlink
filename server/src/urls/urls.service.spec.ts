@@ -27,14 +27,14 @@ describe('UrlsService', () => {
   it('should use provided hobbit link', () => {
     const hobbitLink = service.createHobbitLink(mockCreateUrlDto);
     expect(hobbitLink).toBeDefined();
-    expect(hobbitLink.url).toBe('http://google.com');
+    expect(hobbitLink.url).toBe('https://google.com');
     expect(hobbitLink.hobbitLink).toBe('wtd_g');
   });
 
   it('should create a new hobbit link', () => {
-    const hobbitLink = service.createHobbitLink({ url: 'http://google.com' });
+    const hobbitLink = service.createHobbitLink({ url: 'https://google.com' });
     expect(hobbitLink).toBeDefined();
-    expect(hobbitLink.url).toBe('http://google.com');
+    expect(hobbitLink.url).toBe('https://google.com');
     expect(hobbitLink.hobbitLink).toBeDefined();
     expect(hobbitLink.hobbitLink.length).toBe(5);
   });

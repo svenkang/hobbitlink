@@ -26,7 +26,7 @@ describe('UrlsController', () => {
   it('should respond with create hobbit response', () => {
     const resp = controller.createUrl(mockCreateUrlDto);
     expect(resp).toBeDefined();
-    expect(resp.url).toBe('http://google.com');
+    expect(resp.url).toBe('https://google.com');
     expect(resp.hobbitLink).toBe('wtd_g');
   });
 });
