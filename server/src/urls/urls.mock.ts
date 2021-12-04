@@ -1,4 +1,4 @@
 export const mockCreateUrlDto = {
-  url: 'http://google.com',
+  url: 'https://google.com',
   hobbitLink: 'wtd_g',
 };
