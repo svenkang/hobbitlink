@@ -1,4 +1,4 @@
-# hobbitlink &middot; [![Made with](https://img.shields.io/badge/made%20with-nestjs-orange)](https://docs.nestjs.com/) [![Node Version](https://img.shields.io/badge/node-v16.9.1-blue)](https://github.com/svenkang/hobbitlink/blob/main/server/.nvmrc) [![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/svenkang/hobbitlink/blob/main/server/jest.config.ts)
+# Hobbitlink &middot; [![Made with](https://img.shields.io/badge/made%20with-nestjs-orange)](https://docs.nestjs.com/) [![Node Version](https://img.shields.io/badge/node-v16.9.1-blue)](https://github.com/svenkang/hobbitlink/blob/main/server/.nvmrc) [![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/svenkang/hobbitlink/blob/main/server/jest.config.ts)
 
 ## Features
 * **TypeScript:** Built fully with TypeScript for scale.
