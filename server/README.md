@@ -7,11 +7,10 @@
 - [x] full unit test coverage
 - [x] health check endpoint
 - [x] logging middleware
-- [ ] swagger api documentation
-- [ ] typeorm and repository pattern
-- [ ] docker and docker-compose
-- [ ] production optimization
+- [x] swagger api documentation
 - [ ] security with helmet and cors
+- [ ] docker and docker-compose
+- [ ] typeorm and repository pattern
 
 ## Features
 - [x] create a hobbit link from a url
@@ -27,3 +26,4 @@
 
 ## Won't do
 - [-] cicd pipeline
+- [-] production optimization
