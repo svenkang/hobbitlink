@@ -10,7 +10,7 @@ export const TypeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
     username: configService.get('MYSQL_USER', { infer: true }),
     password: configService.get('MYSQL_PASSWORD', { infer: true }),
     database: configService.get('MYSQL_DATABASE', { infer: true }),
-    entities: [],
+    entities: ['dist/**/*.entity{.ts,.js}'],
     retryAttempts: 5,
     retryDelay: 5000,
     keepConnectionAlive: false,
