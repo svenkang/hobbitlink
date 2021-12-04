@@ -9,7 +9,7 @@
 - [x] logging middleware
 - [x] swagger api documentation
 - [x] security with helmet and cors
-- [ ] docker and docker-compose
+- [x] docker and docker-compose
 - [ ] typeorm and repository pattern
 
 ## Features

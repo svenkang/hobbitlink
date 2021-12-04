@@ -3,6 +3,7 @@ import * as Joi from 'joi';
 
 export const configuration: ConfigModuleOptions = {
   isGlobal: true,
+  ignoreEnvFile: true,
   validationSchema: Joi.object({
     NODE_PORT: Joi.number().required(),
     NODE_ENV: Joi.string().required(),
