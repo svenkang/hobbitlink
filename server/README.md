@@ -1,4 +1,4 @@
-# hobbitlink &middot; [![Made with](https://img.shields.io/badge/made_with-nestjs-blue.svg)](https://nestjs.com/) [![Node Version](https://img.shields.io/badge/node-v16.9.1-blue)](https://github.com/fieldnation/calculate-pay/blob/master/.nvmrc) [![Coverage](https://img.shields.io/badge/coverage-100%-brightgreen.svg)]()
+# hobbitlink &middot; [![Made with](https://img.shields.io/badge/made%20with-nestjs-orange)](https://nestjs.com/) [![Node Version](https://img.shields.io/badge/node-v16.9.1-blue)](https://github.com/fieldnation/calculate-pay/blob/master/.nvmrc) [![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)]()
 
 ## Features
 * **TypeScript:** Built fully with TypeScript for scale.
