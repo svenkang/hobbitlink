@@ -11,7 +11,6 @@
 - [ ] typeorm and repository pattern
 - [ ] docker and docker-compose
 - [ ] production optimization
-- [ ] cicd pipeline
 - [ ] security with helmet and cors
 
 ## Features
@@ -26,3 +25,5 @@
 - [ ] track clicks 
 - [ ] track meta data
 
+## Won't do
+- [-] cicd pipeline
