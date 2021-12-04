@@ -23,6 +23,9 @@ export class Url {
   @Column('boolean')
   active: boolean;
 
+  @Column()
+  expire_at: Date;
+
   @CreateDateColumn()
   created_at: Date;
 
