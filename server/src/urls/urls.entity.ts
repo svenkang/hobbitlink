@@ -2,33 +2,30 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
 export class Url {
-  @PrimaryGeneratedColumn()
-  url_id: number;
+  @PrimaryColumn({ length: 256 })
+  hobbitLink: string;
 
   @Column({ type: 'tinytext' })
   url: string;
 
-  @Column({ length: 256 })
-  hobbitlink: string;
-
-  @Column('int')
+  @Column('int', { default: 0 })
   clicks: number;
 
-  @Column('boolean')
+  @Column('boolean', { default: false })
   active: boolean;
 
-  @Column()
-  expire_at: Date;
+  @CreateDateColumn()
+  expiresAt: Date;
 
   @CreateDateColumn()
-  created_at: Date;
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updatedAt: Date;
 }

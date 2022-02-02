@@ -10,7 +10,7 @@ import { UrlsService } from './urls.service';
 
 @Controller('urls')
 export class UrlsController {
-  constructor(private readonly urlsService: UrlsService) {}
+  public constructor(private readonly urlsService: UrlsService) {}
 
   @Post()
   @ApiTags('hobbitlink')
@@ -20,9 +20,9 @@ export class UrlsController {
   @ApiBadRequestResponse({
     description: 'The given request body is not valid.',
   })
-  createUrl(
+  public async createUrl(
     @Body() createHobbitLinkDto: CreateHobbitLinkDto,
-  ): CreateHobbitResponse {
-    return this.urlsService.createHobbitLink(createHobbitLinkDto);
+  ): Promise<CreateHobbitResponse> {
+    return await this.urlsService.createHobbitLink(createHobbitLinkDto);
   }
 }

@@ -29,11 +29,13 @@ This service supports OpenAPI specification powered by swagger.\
 After running the service, from the browser, go to: [http://localhost:8080/api](http://localhost:8080/api)
 
 ## Todo
-- [ ] store the urls in mysql
 - [ ] proxy hobbit url
-- [ ] serve the urls in with variable expiration
-- [ ] require auth and login
-- [ ] add limit per user
 - [ ] track clicks 
+- [ ] get all urls
+- [ ] get top urls
+- [ ] require auth and login
+- [ ] serve the urls in with variable expiration
+- [ ] add limit per user
+- [ ] get my urls
 - [ ] track meta data
-
+- [ ] decrypt hobbitlink 
