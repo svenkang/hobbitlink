@@ -5,7 +5,8 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { CreateHobbitLinkDto } from './urls.dto';
-import { UrlsService, CreateHobbitResponse } from './urls.service';
+import { CreateHobbitResponse } from './urls.interface';
+import { UrlsService } from './urls.service';
 
 @Controller('urls')
 export class UrlsController {
