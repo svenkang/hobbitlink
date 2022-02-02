@@ -5,6 +5,7 @@ import { AppModule } from './app/app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { LoggerService } from './logger/logger.service';
 import * as helmet from 'helmet';
+import { NodeEnv } from './env/env.interface';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,7 +15,7 @@ async function bootstrap() {
   const appName = configService.get<string>('APP_NAME', { infer: true });
   const appVersion = configService.get<string>('APP_VER', { infer: true });
 
-  if (nodeEnv !== 'production') {
+  if (nodeEnv !== NodeEnv.PRODUCTION) {
     const swaggerConfig = new DocumentBuilder()
       .setTitle(appName)
       .setDescription(`Welcome to ${appName} API documentation`)
