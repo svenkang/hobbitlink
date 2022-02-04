@@ -9,7 +9,7 @@ export class HealthzController {
 
   @Get()
   @HealthCheck()
-  @ApiTags('hobbitlink')
+  @ApiTags('healthz')
   public async check(): Promise<HealthCheckResult> {
     return await this.healthzService.checkAll();
   }

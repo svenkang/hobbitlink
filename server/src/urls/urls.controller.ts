@@ -13,7 +13,7 @@ export class UrlsController {
   public constructor(private readonly urlsService: UrlsService) {}
 
   @Post()
-  @ApiTags('hobbitlink')
+  @ApiTags('urls')
   @ApiCreatedResponse({
     description: 'The url has been successfully shortened.',
   })
