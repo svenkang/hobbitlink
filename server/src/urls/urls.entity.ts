@@ -2,23 +2,27 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { HOBBIT_LINK_MAX_CHAR } from './urls.interface';
 
 @Entity()
 export class Url {
-  @PrimaryColumn({ length: 256 })
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column('varchar', { length: HOBBIT_LINK_MAX_CHAR })
   hobbitLink: string;
 
-  @Column({ type: 'tinytext' })
+  @Column('tinytext')
   url: string;
 
   @Column('int', { default: 0 })
   clicks: number;
 
-  @Column('boolean', { default: false })
-  active: boolean;
+  @Column('boolean', { default: true })
+  isActive: boolean;
 
   @CreateDateColumn()
   expiresAt: Date;

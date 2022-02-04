@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { addDays } from 'date-fns';
-
-export const DAYS_TO_EXPIRATION = 1;
+import { DAYS_TO_EXPIRATION } from './expiration.interface';
 
 @Injectable()
 export class ExpirationService {

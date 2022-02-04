@@ -2,14 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { CreateHobbitLinkDto } from './urls.dto';
 import { nanoid } from 'nanoid';
 import { LoggerService } from './../logger/logger.service';
-import { CreateHobbitResponse, SaveUrlRequest } from './urls.interface';
+import {
+  CreateHobbitResponse,
+  HOBBIT_LINK_DEFAULT_CHAR,
+  SaveUrlRequest,
+} from './urls.interface';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Url } from './urls.entity';
-import { ExpirationService } from 'src/expiration/expiration.service';
-
-export const HOBBIT_LINK_MIN_CHAR = 1;
-export const HOBBIT_LINK_MAX_CHAR = 5;
+import { ExpirationService } from './../expiration/expiration.service';
 
 @Injectable()
 export class UrlsService {
@@ -26,7 +27,7 @@ export class UrlsService {
     createHobbitLinkDto: CreateHobbitLinkDto,
   ): Promise<CreateHobbitResponse> {
     const hobbitLink =
-      createHobbitLinkDto.hobbitLink || nanoid(HOBBIT_LINK_MAX_CHAR);
+      createHobbitLinkDto.hobbitLink || nanoid(HOBBIT_LINK_DEFAULT_CHAR);
     const urlToSave: SaveUrlRequest = {
       url: createHobbitLinkDto.url,
       hobbitLink,

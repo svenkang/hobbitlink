@@ -23,8 +23,8 @@ describe('UrlsController', () => {
     controller = module.get<UrlsController>(UrlsController);
   });
 
-  it('should respond with create hobbit response', () => {
-    const resp = controller.createUrl(mockCreateUrlDto);
+  it('should respond with create hobbit response', async () => {
+    const resp = await controller.createUrl(mockCreateUrlDto);
     expect(resp).toBeDefined();
     expect(resp.url).toBe('https://google.com');
     expect(resp.hobbitLink).toBe('wtd_g');
