@@ -30,11 +30,5 @@ After running the service, from the browser, go to: [http://localhost:8080/api](
 
 ## Todo
 - [ ] get all urls
-- [ ] track clicks 
 - [ ] get top urls
-- [ ] require auth and login
-- [ ] serve the urls in with variable expiration
-- [ ] add limit per user
-- [ ] get my urls
-- [ ] track meta data
-- [ ] decrypt hobbitlink 
+- [ ] track clicks 
