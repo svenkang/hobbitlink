@@ -21,7 +21,7 @@ export class CreateHobbitLinkDto {
   )
   @IsOptional()
   @ApiPropertyOptional({
-    description: 'An optional five digit hash to shorten the url to.',
+    description: `An optional ${HOBBIT_LINK_MIN_CHAR}-${HOBBIT_LINK_MAX_CHAR} digit hash to shorten the url to.`,
     default: 'd2_fs',
   })
   readonly hobbitLink?: string;

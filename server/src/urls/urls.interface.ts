@@ -1,5 +1,5 @@
 export const HOBBIT_LINK_MIN_CHAR = 1;
-export const HOBBIT_LINK_DEFAULT_CHAR = 5;
+export const HOBBIT_LINK_DEFAULT_CHAR = 7;
 export const HOBBIT_LINK_MAX_CHAR = 256;
 
 export interface CreateHobbitResponse {

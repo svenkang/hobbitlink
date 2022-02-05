@@ -29,9 +29,8 @@ This service supports OpenAPI specification powered by swagger.\
 After running the service, from the browser, go to: [http://localhost:8080/api](http://localhost:8080/api)
 
 ## Todo
-- [ ] proxy hobbit url
-- [ ] track clicks 
 - [ ] get all urls
+- [ ] track clicks 
 - [ ] get top urls
 - [ ] require auth and login
 - [ ] serve the urls in with variable expiration

@@ -8,13 +8,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmAsyncConfig } from 'src/typeorm/typeorm.config';
+import { ProxyModule } from 'src/proxy/proxy.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(AppConfig),
     TypeOrmModule.forRootAsync(TypeOrmAsyncConfig),
-    UrlsModule,
     HealthzModule,
+    UrlsModule,
+    ProxyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -34,6 +34,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
+
   app.use(helmet());
   app.enableCors();
 
