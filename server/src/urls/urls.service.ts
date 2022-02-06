@@ -23,6 +23,10 @@ export class UrlsService {
     logger.setContext(UrlsService.name);
   }
 
+  public async getUrls(): Promise<Url[]> {
+    return await this.urlRepository.find();
+  }
+
   public async createHobbitLink(
     createHobbitLinkDto: CreateHobbitLinkDto,
   ): Promise<CreateHobbitResponse> {

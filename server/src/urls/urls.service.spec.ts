@@ -52,4 +52,11 @@ describe('UrlsService', () => {
     expect(hobbitLink.hobbitLink).toBeDefined();
     expect(hobbitLink.hobbitLink.length).toBe(7);
   });
+
+  it('should get all urls', async () => {
+    const urls = await service.getUrls();
+    expect(urls).toBeDefined();
+    expect(urls.length).toBe(4);
+    expect(urls[0].clicks).toBe(0);
+  });
 });

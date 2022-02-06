@@ -26,4 +26,11 @@ describe('UrlsController', () => {
     expect(resp.url).toBe('https://google.com');
     expect(resp.hobbitLink).toBe('wtd_g');
   });
+
+  it('should respond with urls', async () => {
+    const resp = await controller.getUrls();
+    expect(resp).toBeDefined();
+    expect(resp.length).toBe(4);
+    expect(resp[0].clicks).toBe(0);
+  });
 });
