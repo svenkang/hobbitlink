@@ -11,5 +11,5 @@ export class PaginationQueryDto {
 
   @IsOptional()
   @IsBoolean()
-  ordered?: boolean;
+  order?: boolean;
 }

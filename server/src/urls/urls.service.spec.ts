@@ -66,7 +66,7 @@ describe('UrlsService', () => {
     const paginationQuery: PaginationQueryDto = {
       limit: 2,
       offset: 1,
-      ordered: true,
+      order: true,
     };
     const urls = await service.getUrls(paginationQuery);
     expect(urls).toBeDefined();

@@ -3,6 +3,7 @@ import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
   ApiOkResponse,
+  ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
 import { CreateHobbitLinkDto } from './urls.post.dto';
@@ -17,6 +18,21 @@ export class UrlsController {
 
   @Get()
   @ApiTags('urls')
+  @ApiQuery({
+    name: 'limit',
+    required: false,
+    description: 'limit the length of result set',
+  })
+  @ApiQuery({
+    name: 'offset',
+    required: false,
+    description: 'offset the result set position',
+  })
+  @ApiQuery({
+    name: 'order',
+    required: false,
+    description: 'order the query by highest clicks',
+  })
   @ApiOkResponse({
     description: 'All urls have been successfully fetched',
   })

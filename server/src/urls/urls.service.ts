@@ -25,11 +25,11 @@ export class UrlsService {
   }
 
   public async getUrls(paginationQuery: PaginationQueryDto): Promise<Url[]> {
-    const { offset, limit, ordered } = paginationQuery;
+    const { offset, limit, order } = paginationQuery;
     const options: FindManyOptions<Url> = {
       ...(offset && { skip: offset }),
       ...(limit && { take: limit }),
-      ...(ordered && { order: { clicks: 'DESC' } }),
+      ...(order && { order: { clicks: 'DESC' } }),
     };
     return await this.urlRepository.find(options);
   }
