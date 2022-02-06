@@ -1,7 +1,12 @@
-const mockSave = jest.fn((dto: any) => {
-  return dto;
+const mockSave = jest.fn((options: any) => {
+  return options;
 });
-const mockFind = jest.fn(() => mockUrls);
+const mockFind = jest.fn((options) => {
+  if (options?.take) {
+    return mockUrls.slice(0, options.take);
+  }
+  return mockUrls;
+});
 const MockRepository = jest.fn().mockImplementation(() => {
   return {
     save: mockSave,

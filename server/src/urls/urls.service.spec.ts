@@ -10,6 +10,7 @@ import {
 import { ExpirationService } from './../expiration/expiration.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Url } from './urls.entity';
+import { PaginationQueryDto } from './urls.get.dto';
 
 describe('UrlsService', () => {
   let service: UrlsService;
@@ -54,9 +55,22 @@ describe('UrlsService', () => {
   });
 
   it('should get all urls', async () => {
-    const urls = await service.getUrls();
+    const paginationQuery: PaginationQueryDto = {};
+    const urls = await service.getUrls(paginationQuery);
     expect(urls).toBeDefined();
     expect(urls.length).toBe(4);
+    expect(urls[0].clicks).toBe(0);
+  });
+
+  it('should get limited urls', async () => {
+    const paginationQuery: PaginationQueryDto = {
+      limit: 2,
+      offset: 1,
+      ordered: true,
+    };
+    const urls = await service.getUrls(paginationQuery);
+    expect(urls).toBeDefined();
+    expect(urls.length).toBe(2);
     expect(urls[0].clicks).toBe(0);
   });
 });

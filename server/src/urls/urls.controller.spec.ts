@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UrlsController } from './urls.controller';
 import { UrlsService } from './urls.service';
 import { mockCreateUrlDto, mockService } from './urls.mock';
+import { PaginationQueryDto } from './urls.get.dto';
 
 describe('UrlsController', () => {
   let controller: UrlsController;
@@ -28,7 +29,8 @@ describe('UrlsController', () => {
   });
 
   it('should respond with urls', async () => {
-    const resp = await controller.getUrls();
+    const paginationQuery: PaginationQueryDto = {};
+    const resp = await controller.getUrls(paginationQuery);
     expect(resp).toBeDefined();
     expect(resp.length).toBe(4);
     expect(resp[0].clicks).toBe(0);

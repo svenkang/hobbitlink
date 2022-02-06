@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateHobbitLinkDto } from './urls.dto';
+import { CreateHobbitLinkDto } from './urls.post.dto';
 import { nanoid } from 'nanoid';
 import { LoggerService } from './../logger/logger.service';
 import {
@@ -7,10 +7,11 @@ import {
   HOBBIT_LINK_DEFAULT_CHAR,
   SaveUrlRequest,
 } from './urls.interface';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Url } from './urls.entity';
 import { ExpirationService } from './../expiration/expiration.service';
+import { PaginationQueryDto } from './urls.get.dto';
 
 @Injectable()
 export class UrlsService {
@@ -23,8 +24,14 @@ export class UrlsService {
     logger.setContext(UrlsService.name);
   }
 
-  public async getUrls(): Promise<Url[]> {
-    return await this.urlRepository.find();
+  public async getUrls(paginationQuery: PaginationQueryDto): Promise<Url[]> {
+    const { offset, limit, ordered } = paginationQuery;
+    const options: FindManyOptions<Url> = {
+      ...(offset && { skip: offset }),
+      ...(limit && { take: limit }),
+      ...(ordered && { order: { clicks: 'DESC' } }),
+    };
+    return await this.urlRepository.find(options);
   }
 
   public async createHobbitLink(
