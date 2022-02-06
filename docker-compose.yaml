@@ -1,0 +1,42 @@
+version: '3.9'
+volumes:
+  db:
+    driver: local
+networks:
+  hobbitlink:
+    driver: bridge
+services:
+  api:
+    container_name: api
+    build: './api'
+    networks:
+      - hobbitlink
+    volumes:
+      - ./:/server
+    ports:
+      - '${NODE_PORT}:${NODE_PORT}'
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - NODE_PORT=${NODE_PORT}
+      - APP_NAME=${APP_NAME}
+      - APP_VER=${APP_VER}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+  database:
+    container_name: database
+    build: './database'
+    networks:
+      - hobbitlink
+    volumes: 
+      - db:/var/lib/mysql
+    ports:
+      - '${MYSQL_PORT}:${MYSQL_PORT}'
+    environment:
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
