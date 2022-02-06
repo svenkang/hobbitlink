@@ -6,9 +6,13 @@ const mockFindOne = jest.fn((dto: any) => {
   }
   return undefined;
 });
+const mockSave = jest.fn((options: any) => {
+  return options;
+});
 const MockRepository = jest.fn().mockImplementation(() => {
   return {
     findOne: mockFindOne,
+    save: mockSave,
   };
 });
 export const mockRepository = new MockRepository();

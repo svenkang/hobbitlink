@@ -12,10 +12,17 @@ export class ProxyService {
   ) {}
 
   public async toUrl(getProxyUrlDto: GetProxyUrlDto): Promise<Url | undefined> {
-    return await this.urlRepository.findOne({
+    const url = await this.urlRepository.findOne({
       hobbitLink: getProxyUrlDto.hobbitLink,
       isActive: true,
       expiresAt: MoreThanOrEqual(new Date()),
     });
+    if (url) {
+      await this.urlRepository.save({
+        id: url.id,
+        clicks: url.clicks + 1,
+      });
+    }
+    return url;
   }
 }
