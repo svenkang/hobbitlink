@@ -1,13 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UrlsController } from './urls.controller';
 import { UrlsService } from './urls.service';
-import { mockCreateUrlDto } from './urls.mock';
+import { mockCreateUrlDto, mockService } from './urls.mock';
 
 describe('UrlsController', () => {
   let controller: UrlsController;
-  const mockService = {
-    createHobbitLink: jest.fn().mockImplementation((dto) => dto),
-  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

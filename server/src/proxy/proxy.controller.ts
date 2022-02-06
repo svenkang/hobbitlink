@@ -1,5 +1,6 @@
 import { Body, Controller, Get } from '@nestjs/common';
 import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
+import { Url } from './../urls/urls.entity';
 import { GetProxyUrlDto } from './proxy.dto';
 import { ProxyService } from './proxy.service';
 
@@ -12,7 +13,9 @@ export class ProxyController {
   @ApiBadRequestResponse({
     description: 'The given request body is not valid.',
   })
-  public async toUrl(@Body() getProxyUrlDto: GetProxyUrlDto): Promise<any> {
+  public async toUrl(
+    @Body() getProxyUrlDto: GetProxyUrlDto,
+  ): Promise<Url | undefined> {
     return await this.proxyService.toUrl(getProxyUrlDto);
   }
 }

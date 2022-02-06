@@ -1,30 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { LoggerService } from '../logger/logger.service';
 import { UrlsService } from './urls.service';
-import { mockCreateUrlDto } from './urls.mock';
+import {
+  mockCreateUrlDto,
+  mockExpiration,
+  mockLogger,
+  mockRepository,
+} from './urls.mock';
 import { ExpirationService } from './../expiration/expiration.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Url } from './urls.entity';
 
 describe('UrlsService', () => {
   let service: UrlsService;
-
-  const mockSave = jest.fn((dto: any) => {
-    return dto;
-  });
-  const MockRepository = jest.fn().mockImplementation(() => {
-    return {
-      save: mockSave,
-    };
-  });
-  const mockRepository = new MockRepository();
-  const mockExpiration = {
-    getExpirationDate: jest.fn().mockImplementation(),
-  };
-  const mockLogger = {
-    setContext: jest.fn().mockImplementation(),
-    debug: jest.fn().mockImplementation(),
-  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -62,6 +50,6 @@ describe('UrlsService', () => {
     expect(hobbitLink).toBeDefined();
     expect(hobbitLink.url).toBe('https://google.com');
     expect(hobbitLink.hobbitLink).toBeDefined();
-    expect(hobbitLink.hobbitLink.length).toBe(5);
+    expect(hobbitLink.hobbitLink.length).toBe(7);
   });
 });
