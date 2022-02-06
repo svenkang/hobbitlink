@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Url } from 'src/urls/urls.entity';
+import { Url } from './../urls/urls.entity';
 import { ProxyController } from './proxy.controller';
 import { ProxyService } from './proxy.service';
 

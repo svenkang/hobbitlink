@@ -9,8 +9,8 @@
 ## Installation
 ```bash
 $ git clone https://github.com/svenkang/hobbitlink.git
-$ cd hobbitlink/server
-$ npm install
+$ cd hobbitlink
+$ docker-compose build
 ```
 
 ## Running
@@ -21,7 +21,6 @@ $ docker-compose up
 ## Testing
 ```bash
 $ npm run test:cov
-$ npm run test:e2e
 ```
 
 ## Documentation

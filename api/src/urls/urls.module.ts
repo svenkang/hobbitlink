@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ExpirationModule } from 'src/expiration/expiration.module';
+import { ExpirationModule } from './../expiration/expiration.module';
 import { LoggerModule } from './../logger/logger.module';
 import { UrlsController } from './urls.controller';
 import { Url } from './urls.entity';
