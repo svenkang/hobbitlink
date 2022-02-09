@@ -11,7 +11,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   const logger = app.get(LoggerService);
-  const port = configService.get<number>('NODE_PORT', { infer: true });
+  const port = configService.get<number>('API_PORT', { infer: true });
   const nodeEnv = configService.get<string>('NODE_ENV', { infer: true });
   const appName = configService.get<string>('APP_NAME', { infer: true });
   const appVersion = configService.get<string>('APP_VER', { infer: true });

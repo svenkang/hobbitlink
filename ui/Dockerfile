@@ -4,7 +4,9 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig*.json ./
 RUN npm install
-COPY ./src ./src
-EXPOSE ${API_PORT}
-CMD [ "npm run start:dev" ]
+COPY ./public ./public
+COPY ./pages ./pages
+COPY ./styles ./styles
+EXPOSE ${UI_PORT}
+CMD [ "npm run dev" ]
 ENTRYPOINT [ "sh", "-c" ]
