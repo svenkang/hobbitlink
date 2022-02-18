@@ -12,7 +12,8 @@ services:
     networks:
       - hobbitlink
     volumes:
-      - ./:/ui
+      - ./ui/:/app
+    working_dir: /app
     ports:
       - '${UI_PORT}:${UI_PORT}'
     environment:
@@ -24,7 +25,8 @@ services:
     networks:
       - hobbitlink
     volumes:
-      - ./:/api
+      - ./api/:/app
+    working_dir: /app
     ports:
       - '${API_PORT}:${API_PORT}'
     environment:
@@ -37,7 +39,7 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
-  database:
+  db:
     container_name: db
     build: './db'
     networks:
