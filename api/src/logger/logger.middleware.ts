@@ -1,12 +1,11 @@
+import { Logger } from '@nestjs/common';
 import { Injectable, NestMiddleware } from '@nestjs/common';
-import * as clc from 'cli-color';
 
 import { Request, Response, NextFunction } from 'express';
-import { LoggerService } from './logger.service';
 
 @Injectable()
 export class HttpLoggerMiddleware implements NestMiddleware {
-  private logger = new LoggerService('HTTP');
+  private logger = new Logger('HTTP');
 
   use(request: Request, response: Response, next: NextFunction): void {
     const { ip, method, originalUrl: url } = request;
@@ -25,17 +24,26 @@ export class HttpLoggerMiddleware implements NestMiddleware {
 
     response.on('close', () => {
       const { statusCode } = response;
-      const contentLength = response.get('content-length') || '?';
+      const contentLength = response.get('content-length') || 0;
       const responseTime = Date.now() - requestTime || 0;
 
       const isError = statusCode >= 400 && statusCode <= 520;
-      let message = `${method} ${url} ${statusCode} ${contentLength} - ${userAgent} ${ip}`;
-      if (isError) {
-        message = clc.red(message);
-      }
-      this.logger.log(`${message} ${clc.yellow(`~${responseTime}ms`)}`);
-    });
+      const message = {
+        method,
+        url,
+        statusCode,
+        contentLength,
+        userAgent,
+        ip,
+        responseTime,
+      };
 
+      if (isError) {
+        this.logger.error(message);
+      } else {
+        this.logger.log(message);
+      }
+    });
     next();
   }
 }

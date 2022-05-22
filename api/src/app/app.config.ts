@@ -1,5 +1,8 @@
+import { NestApplicationOptions } from '@nestjs/common';
 import { ConfigModuleOptions } from '@nestjs/config';
 import * as Joi from 'joi';
+import { WinstonModule } from 'nest-winston';
+import { WinstonConfig } from 'src/logger/logger.config';
 
 export const AppConfig: ConfigModuleOptions = {
   isGlobal: true,
@@ -19,4 +22,8 @@ export const AppConfig: ConfigModuleOptions = {
     allowUnknown: true,
     abortEarly: true,
   },
+};
+
+export const NestConfig: NestApplicationOptions = {
+  logger: WinstonModule.createLogger(WinstonConfig),
 };

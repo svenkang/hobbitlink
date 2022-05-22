@@ -7,7 +7,7 @@ import { HttpLoggerMiddleware } from './../logger/logger.middleware';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TypeOrmAsyncConfig } from './../typeorm/typeorm.config';
+import { TypeOrmAsyncConfig } from '../database/database.config';
 import { ProxyModule } from './../proxy/proxy.module';
 
 @Module({

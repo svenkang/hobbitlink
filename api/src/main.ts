@@ -2,15 +2,15 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { NestApplication, NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app/app.module';
-import { ValidationPipe } from '@nestjs/common';
-import { LoggerService } from './logger/logger.service';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import * as helmet from 'helmet';
 import { NodeEnv } from './env/env.interface';
+import { NestConfig } from './app/app.config';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, NestConfig);
   const configService = app.get(ConfigService);
-  const logger = app.get(LoggerService);
+  const logger = app.get(Logger);
   const port = configService.get<number>('API_PORT', { infer: true });
   const nodeEnv = configService.get<string>('NODE_ENV', { infer: true });
   const appName = configService.get<string>('APP_NAME', { infer: true });

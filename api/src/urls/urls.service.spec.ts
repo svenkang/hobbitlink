@@ -1,5 +1,4 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { LoggerService } from '../logger/logger.service';
 import { UrlsService } from './urls.service';
 import {
   mockCreateUrlDto,
@@ -11,6 +10,7 @@ import { ExpirationService } from './../expiration/expiration.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Url } from './urls.entity';
 import { PaginationQueryDto } from './urls.get.dto';
+import { Logger } from '@nestjs/common';
 
 describe('UrlsService', () => {
   let service: UrlsService;
@@ -24,7 +24,7 @@ describe('UrlsService', () => {
           useValue: mockRepository,
         },
         {
-          provide: LoggerService,
+          provide: Logger,
           useValue: mockLogger,
         },
         {

@@ -1,7 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateHobbitLinkDto } from './urls.post.dto';
 import { nanoid } from 'nanoid';
-import { LoggerService } from './../logger/logger.service';
 import {
   CreateHobbitResponse,
   HOBBIT_LINK_DEFAULT_CHAR,
@@ -19,10 +18,8 @@ export class UrlsService {
     @InjectRepository(Url)
     private readonly urlRepository: Repository<Url>,
     private readonly expirationService: ExpirationService,
-    private readonly logger: LoggerService,
-  ) {
-    logger.setContext(UrlsService.name);
-  }
+    private readonly logger: Logger,
+  ) {}
 
   public async getUrls(paginationQuery: PaginationQueryDto): Promise<Url[]> {
     const { offset, limit, order } = paginationQuery;
