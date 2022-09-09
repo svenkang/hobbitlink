@@ -12,7 +12,7 @@ export class ProxyService {
   ) {}
 
   public async toUrl(getProxyUrlDto: GetProxyUrlDto): Promise<Url | undefined> {
-    const url = await this.urlRepository.findOne({
+    const url = await this.urlRepository.findOneBy({
       hobbitLink: getProxyUrlDto.hobbitLink,
       isActive: true,
       expiresAt: MoreThanOrEqual(new Date()),

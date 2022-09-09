@@ -3,7 +3,7 @@ import { NestApplication, NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app/app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
-import * as helmet from 'helmet';
+import helmet from 'helmet';
 import { NodeEnv } from './env/env.interface';
 import { NestConfig } from './app/app.config';
 

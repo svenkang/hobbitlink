@@ -1,6 +1,6 @@
 import { Url } from './../urls/urls.entity';
 
-const mockFindOne = jest.fn((dto: any) => {
+const mockFindOneBy = jest.fn((dto: any) => {
   if (dto?.hobbitLink == mockHobbitLink) {
     return mockUrl;
   }
@@ -11,7 +11,7 @@ const mockSave = jest.fn((options: any) => {
 });
 const MockRepository = jest.fn().mockImplementation(() => {
   return {
-    findOne: mockFindOne,
+    findOneBy: mockFindOneBy,
     save: mockSave,
   };
 });
