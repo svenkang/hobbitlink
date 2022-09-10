@@ -8,8 +8,6 @@
 
 ## Installation
 ```bash
-$ git clone https://github.com/svenkang/hobbitlink.git
-$ cd hobbitlink
 $ docker-compose build
 ```
 
