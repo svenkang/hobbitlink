@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'api/*'
+      - '.github/workflows/api*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,9 +12,13 @@ jobs:
         working-directory: './api'
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Select
+        id: nvm
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      - name: Node
+        uses: actions/setup-node@v3
         with:
-          node-version: '16.17.0'
+          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
       - name: Install
         run: npm ci
       - name: Build
