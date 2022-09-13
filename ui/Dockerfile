@@ -1,8 +1,9 @@
-FROM node:16.13.0-alpine3.14@sha256:3bca55259ada636e5fee8f2836aba7fa01fed7afd0652e12773ad44af95868b9
+FROM node:16.17.0-alpine3.16@sha256:bf1e1c4761cd5e417b5ed60d5c599266270b728878089efcd1d63a8bd1dde446
 RUN mkdir /app
 WORKDIR /app
 COPY package*.json ./
 COPY tsconfig*.json ./
+COPY .babelrc ./
 RUN npm install
 COPY ./public ./public
 COPY ./pages ./pages
