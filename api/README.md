@@ -1,4 +1,4 @@
-# Hobbit Link API &middot; [![Made with](https://img.shields.io/badge/made%20with-nestjs-blue)](https://docs.nestjs.com/) [![Node Version](https://img.shields.io/badge/node-v16.17.0-blue)](https://github.com/svenkang/hobbitlink/blob/main/server/.nvmrc) [![build](https://github.com/svenkang/hobbitlink/actions/workflows/api-workflow.yml/badge.svg)](https://github.com/svenkang/hobbitlink/blob/main/server/jest.config.ts)
+# Hobbit Link API &middot; [![Made with](https://img.shields.io/badge/made%20with-nestjs-blue)](https://docs.nestjs.com/) [![Node Version](https://img.shields.io/badge/node-v16.17.0-blue)](https://github.com/svenkang/hobbitlink/blob/main/server/.nvmrc) [![build](https://github.com/svenkang/hobbitlink/actions/workflows/api-workflow.yml/badge.svg)](https://github.com/svenkang/hobbitlink/actions/workflows/api-workflow.yml)
 
 ## Features
 * **TypeScript:** Built with TypeScript for type safety.
