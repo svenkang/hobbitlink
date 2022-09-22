@@ -2,7 +2,7 @@ name: ui-workflow
 on:
   push:
     paths:
-      - 'ui/*'
+      - 'ui/**'
       - '.github/workflows/ui*'
 jobs:
   build:
