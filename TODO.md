@@ -9,8 +9,9 @@
 - [x] logos
 - [x] logger
 - [x] git actions
-- [ ] typography
 - [ ] theme
+  - [ ] fonts
+  - [ ] color scheme
 - [ ] unit/int testing
 - [ ] hobbify page
 - [ ] dashboard page
