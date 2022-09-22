@@ -8,9 +8,9 @@
 ## must-have
 - [x] logos
 - [x] logger
+- [x] git actions
 - [ ] typography
 - [ ] theme
-- [ ] git actions
 - [ ] unit/int testing
 - [ ] hobbify page
 - [ ] dashboard page
