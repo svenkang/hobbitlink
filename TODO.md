@@ -7,9 +7,9 @@
 # ui
 ## must-have
 - [x] logos
+- [x] logger
 - [ ] typography
 - [ ] theme
-- [ ] json logger
 - [ ] git actions
 - [ ] unit/int testing
 - [ ] hobbify page

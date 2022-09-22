@@ -7,7 +7,9 @@ const GlobalOptions = [
   winston.format.json(),
 ];
 
-const DevOptions = [winston.format.prettyPrint()];
+const DevOptions = [
+  /* winston.format.prettyPrint() */
+];
 
 const EnvOptions = [...GlobalOptions];
 if (process.env.NODE_ENV === NodeEnv.DEVELOPMENT) {

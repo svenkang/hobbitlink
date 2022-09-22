@@ -1,23 +1,29 @@
-const pino = require('pino')
+const pino = require('pino');
+
+const formatters = {
+  level (label, number) {
+    return { level: label }
+  },
+  log (object) {
+    return JSON.parse(JSON.stringify(object, null, 2));
+  },
+}
 
 const logger = defaultConfig =>
   pino({
     ...defaultConfig,
     messageKey: 'message',
-    mixin: () => ({ 
+    timestamp: false,
+    base: undefined,
+    mixin: (_context, level) => ({ 
       context: 'NextApplication', 
       timestamp: (new Date().toISOString()),
-      level: logger.level,
     }),
-    transport: {
-      target: 'pino-pretty',
-      options: {
-        translateTime: 'UTC:yyyy-mm-dd HH:MM:ss.l o',
-        ignore: 'pid,hostname',
-      }
-    }
-  })
-
+    mixinMergeStrategy(mergeObject, mixinObject) {
+        return Object.assign({}, mergeObject, mixinObject)
+    },
+    formatters,
+  });
 
 module.exports = {
   logger,
