@@ -9,11 +9,14 @@
 - [x] logos
 - [x] logger
 - [x] git actions
+- [ ] unit/int testing
 - [ ] theme
   - [ ] fonts
   - [ ] color scheme
-- [ ] unit/int testing
 - [ ] hobbify page
+  - navigation
+  - main content text
+  - main content design
 - [ ] dashboard page
 ## nice-to-have
 
