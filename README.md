@@ -1,13 +1,13 @@
-# Hobbit Link
+# hobbitlink
 
-Hobbit Link is a URL shortener application!
+hobbitlink is a URL shortener application
 
-## Installation
+## Build
 ```bash
 $ docker-compose build
 ```
 
-## Running
+## Run
 ```bash
 $ docker-compose up
 ```
