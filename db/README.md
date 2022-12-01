@@ -1,11 +1,17 @@
-# Hobbit Link Database &middot; [![Made with](https://img.shields.io/badge/made%20with-mysql-blue)](https://www.mysql.com/products/enterprise/database/)
+<p align="center">
+  <a href="https://github.com/svenkang/hobbitlink" target="blank"><img src="https://github.com/svenkang/hobbitlink/blob/main/ui/public/images/logo.svg" width="80" alt="Hobbitlink Logo" /></a>
+</p>
+<p align="center">
+  <a href="https://www.mysql.com/products/enterprise/database/" target="_blank"><img src="https://img.shields.io/badge/made%20with-mysql-blue" alt="db-made-with-mysql" /></a>
+</p>
 
-## Installation
+## Build
 ```bash
-$ docker-compose build
+$ docker build -t hb-db .
 ```
 
-## Running
+## Run
 ```bash
-$ docker-compose up
+$ docker run -p 3306 --env-file ./../.env hb-db
 ```
+

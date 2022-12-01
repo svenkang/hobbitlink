@@ -9,12 +9,13 @@
 
 ## Build
 ```bash
-$ npm run build
+$ docker build -t hb-api .
 ```
 
 ## Run
 ```bash
-$ npm run start:dev
+# make sure the database is up before the api starts
+$ docker run -p 3030 --env-file ./../.env hb-api
 ```
 
 ## Test
@@ -24,5 +25,5 @@ $ npm run test
 
 ## Documentation
 This service supports OpenAPI specification powered by swagger.\
-After running the service, go to: [http://localhost:8080/api](http://localhost:8080/api)
+After running the service, go to: [http://localhost:3030/api](http://localhost:3030/api)
 
