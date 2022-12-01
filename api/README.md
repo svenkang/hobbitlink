@@ -9,13 +9,12 @@
 
 ## Build
 ```bash
-$ docker build -t hb-api .
+$ docker-compose build
 ```
 
 ## Run
 ```bash
-# make sure the database is up before the api starts
-$ docker run -p 3030 --env-file ./../.env hb-api
+$ docker-compose up
 ```
 
 ## Test

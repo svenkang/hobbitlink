@@ -7,11 +7,11 @@
 
 ## Build
 ```bash
-$ docker build -t hb-db .
+$ docker-compose build
 ```
 
 ## Run
 ```bash
-$ docker run -p 3306 --env-file ./../.env hb-db
+$ docker-compose up
 ```
 
