@@ -1,8 +1,7 @@
 # api
 ## must-have
-- [ ] db migration
-## nice-to-have
-- [ ] db seeding
+- [x] db migration
+- [ ] auth/login
 
 # ui
 ## must-have
@@ -21,8 +20,5 @@
 ## nice-to-have
 
 # app
-## must-have
 - [ ] docker production optimization
 - [ ] deployment to cloud
-## nice-to-have
-- [ ] auth/login
