@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Url } from './../urls/urls.entity';
+import { Url } from '../url/url.entity';
 import { MoreThanOrEqual, Repository } from 'typeorm';
 import { GetProxyUrlDto } from './proxy.dto';
 

@@ -1,4 +1,4 @@
-import { Url } from './../urls/urls.entity';
+import { Url } from '../url/url.entity';
 
 const mockFindOneBy = jest.fn((dto: any) => {
   if (dto?.hobbitLink == mockHobbitLink) {

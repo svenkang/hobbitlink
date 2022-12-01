@@ -3,7 +3,7 @@ import { IsString, Matches } from 'class-validator';
 import {
   HOBBIT_LINK_MAX_CHAR,
   HOBBIT_LINK_MIN_CHAR,
-} from './../urls/urls.interface';
+} from '../url/url.interface';
 
 export class GetProxyUrlDto {
   @IsString()

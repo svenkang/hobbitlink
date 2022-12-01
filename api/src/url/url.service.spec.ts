@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UrlsService } from './urls.service';
+import { UrlsService } from './url.service';
 import {
   mockCreateUrlDto,
   mockExpiration,
   mockLogger,
   mockRepository,
-} from './urls.mock';
-import { ExpirationService } from './../expiration/expiration.service';
+} from './url.mock';
+import { ExpirationService } from '../expiration/expiration.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Url } from './urls.entity';
-import { PaginationQueryDto } from './urls.get.dto';
+import { Url } from './url.entity';
+import { PaginationQueryDto } from './url.get.dto';
 import { Logger } from '@nestjs/common';
 
 describe('UrlsService', () => {

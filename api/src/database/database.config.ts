@@ -1,5 +1,6 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
+import { NodeEnv } from './../env/env.interface';
 
 export const TypeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
   imports: [ConfigModule],
@@ -14,10 +15,12 @@ export const TypeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
     retryAttempts: 5,
     retryDelay: 5000,
     keepConnectionAlive: false,
+    migrationsRun:
+      configService.get('NODE_ENV', { infer: true }) === NodeEnv.PRODUCTION,
     synchronize:
-      configService.get('NODE_ENV', { infer: true }) !== 'production',
+      configService.get('NODE_ENV', { infer: true }) !== NodeEnv.PRODUCTION,
     autoLoadEntities:
-      configService.get('NODE_ENV', { infer: true }) !== 'production',
+      configService.get('NODE_ENV', { infer: true }) !== NodeEnv.PRODUCTION,
   }),
   inject: [ConfigService],
 };

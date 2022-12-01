@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppConfig } from './app.config';
-import { UrlsModule } from './../urls/urls.module';
+import { UrlsModule } from '../url/url.module';
 import { HealthzModule } from './../healthz/healthz.module';
 import { HttpLoggerMiddleware } from './../logger/logger.middleware';
 import { AppController } from './app.controller';

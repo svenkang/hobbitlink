@@ -1,16 +1,16 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { CreateHobbitLinkDto } from './urls.post.dto';
+import { CreateHobbitLinkDto } from './url.post.dto';
 import { nanoid } from 'nanoid';
 import {
   CreateHobbitResponse,
   HOBBIT_LINK_DEFAULT_CHAR,
   SaveUrlRequest,
-} from './urls.interface';
+} from './url.interface';
 import { FindManyOptions, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Url } from './urls.entity';
-import { ExpirationService } from './../expiration/expiration.service';
-import { PaginationQueryDto } from './urls.get.dto';
+import { Url } from './url.entity';
+import { ExpirationService } from '../expiration/expiration.service';
+import { PaginationQueryDto } from './url.get.dto';
 
 @Injectable()
 export class UrlsService {

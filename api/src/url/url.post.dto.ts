@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsOptional, IsString, IsUrl, Matches } from 'class-validator';
-import { HOBBIT_LINK_MAX_CHAR, HOBBIT_LINK_MIN_CHAR } from './urls.interface';
+import { HOBBIT_LINK_MAX_CHAR, HOBBIT_LINK_MIN_CHAR } from './url.interface';
 
 export class CreateHobbitLinkDto {
   @IsUrl()

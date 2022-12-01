@@ -5,7 +5,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { HOBBIT_LINK_MAX_CHAR } from './urls.interface';
+import { HOBBIT_LINK_MAX_CHAR } from './url.interface';
 
 @Entity()
 export class Url {

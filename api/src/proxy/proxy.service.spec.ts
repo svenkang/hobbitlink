@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Url } from './../urls/urls.entity';
+import { Url } from '../url/url.entity';
 import { ProxyController } from './proxy.controller';
 import { GetProxyUrlDto } from './proxy.dto';
 import { mockHobbitLink, mockRepository } from './proxy.mock';

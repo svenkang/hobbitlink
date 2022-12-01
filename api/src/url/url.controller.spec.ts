@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UrlsController } from './urls.controller';
-import { UrlsService } from './urls.service';
-import { mockCreateUrlDto, mockService } from './urls.mock';
-import { PaginationQueryDto } from './urls.get.dto';
+import { UrlsController } from './url.controller';
+import { UrlsService } from './url.service';
+import { mockCreateUrlDto, mockService } from './url.mock';
+import { PaginationQueryDto } from './url.get.dto';
 
 describe('UrlsController', () => {
   let controller: UrlsController;

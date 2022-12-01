@@ -1,6 +1,6 @@
 import { Body, Controller, Get } from '@nestjs/common';
 import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
-import { Url } from './../urls/urls.entity';
+import { Url } from '../url/url.entity';
 import { GetProxyUrlDto } from './proxy.dto';
 import { ProxyService } from './proxy.service';
 

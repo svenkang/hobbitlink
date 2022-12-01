@@ -6,11 +6,11 @@ import {
   ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateHobbitLinkDto } from './urls.post.dto';
-import { Url } from './urls.entity';
-import { CreateHobbitResponse } from './urls.interface';
-import { UrlsService } from './urls.service';
-import { PaginationQueryDto } from './urls.get.dto';
+import { CreateHobbitLinkDto } from './url.post.dto';
+import { Url } from './url.entity';
+import { CreateHobbitResponse } from './url.interface';
+import { UrlsService } from './url.service';
+import { PaginationQueryDto } from './url.get.dto';
 
 @Controller('urls')
 export class UrlsController {
