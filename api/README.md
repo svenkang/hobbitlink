@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/svenkang/hobbitlink" target="blank"><img src="https://github.com/svenkang/hobbitlink/blob/main/ui/public/images/logo.svg" width="80" alt="Hobbitlink Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="80" alt="Nest Logo" /></a>
 </p>
 <p align="center">
   <a href="https://docs.nestjs.com/" target="_blank"><img src="https://img.shields.io/badge/made%20with-nestjs-red" alt="api-made-with-nestjs" /></a>
