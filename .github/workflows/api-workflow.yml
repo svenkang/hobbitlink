@@ -23,6 +23,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build --if-present
+      - name: Audit
+        run: npm audit
       - name: Lint
         run: npm run lint
       - name: Test
