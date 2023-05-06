@@ -1,4 +1,4 @@
-FROM node:16.17.0-alpine3.16@sha256:bf1e1c4761cd5e417b5ed60d5c599266270b728878089efcd1d63a8bd1dde446
+FROM node:18.16.0-alpine3.17@sha256:44aaf1ccc80eaed6572a0f2ef7d6b5a2982d54481e4255480041ac92221e2f11
 RUN mkdir /app
 WORKDIR /app
 COPY package*.json ./
