@@ -1,6 +1,8 @@
 # api
 ## must-have
 - [x] db migration
+- [ ] user module
+- [ ] clean up user module
 - [ ] auth/login
 
 # ui
@@ -8,6 +10,8 @@
 - [x] logos
 - [x] logger
 - [x] git actions
+
+- [ ] landing page
 - [ ] unit/int testing
 - [ ] theme
   - [ ] fonts
@@ -16,6 +20,7 @@
   - navigation
   - main content text
   - main content design
+- [ ] login page
 - [ ] dashboard page
 ## nice-to-have
 

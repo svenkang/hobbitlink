@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmAsyncConfig } from '../database/database.config';
 import { ProxyModule } from './../proxy/proxy.module';
+import { UserModule } from 'src/user/user.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ProxyModule } from './../proxy/proxy.module';
     HealthzModule,
     UrlsModule,
     ProxyModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
