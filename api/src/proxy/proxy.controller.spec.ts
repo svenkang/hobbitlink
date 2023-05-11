@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { ProxyController } from './proxy.controller';
-import { GetProxyUrlDto } from './proxy.dto';
+import { GetProxyUrlDto } from './proxy.read.dto';
 import { mockHobbitLink, mockProxyService } from './proxy.mock';
 import { ProxyService } from './proxy.service';
 

@@ -6,18 +6,18 @@ import {
   ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateHobbitLinkDto } from './url.post.dto';
+import { CreateHobbitLinkDto } from './url.create.dto';
 import { Url } from './url.entity';
 import { CreateHobbitResponse } from './url.interface';
-import { UrlsService } from './url.service';
-import { PaginationQueryDto } from './url.get.dto';
+import { UrlService } from './url.service';
+import { PaginationQueryDto } from './url.read.dto';
 
-@Controller('urls')
-export class UrlsController {
-  public constructor(private readonly urlsService: UrlsService) {}
+@Controller('url')
+export class UrlController {
+  public constructor(private readonly urlsService: UrlService) {}
 
   @Get()
-  @ApiTags('urls')
+  @ApiTags('url')
   @ApiQuery({
     name: 'limit',
     required: false,
@@ -43,7 +43,7 @@ export class UrlsController {
   }
 
   @Post()
-  @ApiTags('urls')
+  @ApiTags('url')
   @ApiCreatedResponse({
     description: 'The url has been successfully shortened.',
   })

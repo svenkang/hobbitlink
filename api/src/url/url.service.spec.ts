@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UrlsService } from './url.service';
+import { UrlService } from './url.service';
 import {
   mockCreateUrlDto,
   mockExpiration,
@@ -9,16 +9,16 @@ import {
 import { ExpirationService } from '../expiration/expiration.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Url } from './url.entity';
-import { PaginationQueryDto } from './url.get.dto';
+import { PaginationQueryDto } from './url.read.dto';
 import { Logger } from '@nestjs/common';
 
-describe('UrlsService', () => {
-  let service: UrlsService;
+describe('UrlService', () => {
+  let service: UrlService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        UrlsService,
+        UrlService,
         {
           provide: getRepositoryToken(Url),
           useValue: mockRepository,
@@ -34,7 +34,7 @@ describe('UrlsService', () => {
       ],
     }).compile();
 
-    service = module.get<UrlsService>(UrlsService);
+    service = module.get<UrlService>(UrlService);
   });
 
   it('should use provided hobbit link', async () => {

@@ -8,35 +8,107 @@ import {
   Delete,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './user.post.dto';
-import { UpdateUserDto } from './user.put.dto';
+import { CreateUserDto } from './user.create.dto';
+import { UpdateUserDto } from './user.update.dto';
+import {
+  ApiConflictResponse,
+  ApiInternalServerErrorResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiParam,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
+import { UserLog, UserTier } from './user.interface';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @ApiTags('user')
+  @ApiQuery({
+    name: 'username',
+    required: true,
+    description: 'username of the user',
+  })
+  @ApiQuery({
+    name: 'password',
+    required: true,
+    description: 'password of the user',
+  })
+  @ApiQuery({
+    name: 'userTier',
+    required: false,
+    description: 'tier of the user',
+    enum: UserTier,
+  })
+  @ApiOkResponse()
+  @ApiConflictResponse({
+    description: UserLog.DUPLICATE,
+  })
+  @ApiInternalServerErrorResponse({
+    description: UserLog.CREATE_FAILED,
+  })
   @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+  async create(@Body() createUserDto: CreateUserDto) {
+    return await this.userService.create(createUserDto);
   }
 
+  @ApiTags('user')
+  @ApiOkResponse()
   @Get()
-  findAll() {
-    return this.userService.findAll();
+  async findAll() {
+    return await this.userService.findAll();
   }
 
+  @ApiTags('user')
+  @ApiParam({
+    name: 'id',
+    required: true,
+    description: 'id of the user',
+  })
+  @ApiOkResponse()
+  @ApiNotFoundResponse({
+    description: UserLog.NOT_FOUND,
+  })
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.userService.findOne(+id);
   }
 
+  @ApiTags('user')
+  @ApiParam({
+    name: 'id',
+    required: true,
+    description: 'id of the user',
+  })
+  @ApiOkResponse()
+  @ApiNotFoundResponse({
+    description: UserLog.NOT_FOUND,
+  })
+  @ApiInternalServerErrorResponse({
+    description: UserLog.UPDATE_FAILED,
+  })
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
+  async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    return await this.userService.update(+id, updateUserDto);
   }
 
+  @ApiTags('user')
+  @ApiParam({
+    name: 'id',
+    required: true,
+    description: 'id of the user',
+  })
+  @ApiOkResponse()
+  @ApiNotFoundResponse({
+    description: UserLog.NOT_FOUND,
+  })
+  @ApiInternalServerErrorResponse({
+    description: UserLog.DELETE_FAILED,
+  })
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.userService.remove(+id);
   }
 }

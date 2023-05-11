@@ -1,24 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { UrlsController } from './url.controller';
-import { UrlsService } from './url.service';
+import { UrlController } from './url.controller';
+import { UrlService } from './url.service';
 import { mockCreateUrlDto, mockService } from './url.mock';
-import { PaginationQueryDto } from './url.get.dto';
+import { PaginationQueryDto } from './url.read.dto';
 
-describe('UrlsController', () => {
-  let controller: UrlsController;
+describe('UrlController', () => {
+  let controller: UrlController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [UrlsController],
+      controllers: [UrlController],
       providers: [
         {
-          provide: UrlsService,
+          provide: UrlService,
           useValue: mockService,
         },
       ],
     }).compile();
 
-    controller = module.get<UrlsController>(UrlsController);
+    controller = module.get<UrlController>(UrlController);
   });
 
   it('should respond with create hobbit response', async () => {

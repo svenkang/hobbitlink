@@ -1,7 +1,7 @@
 import { Body, Controller, Get } from '@nestjs/common';
 import { ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
 import { Url } from '../url/url.entity';
-import { GetProxyUrlDto } from './proxy.dto';
+import { GetProxyUrlDto } from './proxy.read.dto';
 import { ProxyService } from './proxy.service';
 
 @Controller('proxy')

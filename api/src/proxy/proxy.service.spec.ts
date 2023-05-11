@@ -2,7 +2,7 @@ import { Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Url } from '../url/url.entity';
 import { ProxyController } from './proxy.controller';
-import { GetProxyUrlDto } from './proxy.dto';
+import { GetProxyUrlDto } from './proxy.read.dto';
 import { mockHobbitLink, mockRepository } from './proxy.mock';
 import { ProxyService } from './proxy.service';
 

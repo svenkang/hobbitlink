@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsEmail } from 'class-validator';
+import { IsString, IsEmail, IsOptional, IsEnum } from 'class-validator';
+import { UserTier } from './user.interface';
 
 export class CreateUserDto {
   @IsEmail()
@@ -15,4 +16,13 @@ export class CreateUserDto {
     default: 'password',
   })
   readonly password: string;
+
+  @IsEnum(UserTier)
+  @IsOptional()
+  @ApiProperty({
+    description: 'The tier of the user',
+    default: UserTier.BASIC,
+    enum: UserTier,
+  })
+  readonly userTier?: UserTier;
 }

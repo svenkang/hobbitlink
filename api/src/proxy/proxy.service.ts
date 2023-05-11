@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Url } from '../url/url.entity';
 import { MoreThanOrEqual, Repository } from 'typeorm';
-import { GetProxyUrlDto } from './proxy.dto';
+import { GetProxyUrlDto } from './proxy.read.dto';
 
 @Injectable()
 export class ProxyService {

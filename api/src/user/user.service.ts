@@ -1,9 +1,10 @@
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
-import { CreateUserDto } from './user.post.dto';
-import { UpdateUserDto } from './user.put.dto';
+import { CreateUserDto } from './user.create.dto';
+import { UpdateUserDto } from './user.update.dto';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UserLog } from './user.interface';
 
 @Injectable()
 export class UserService {
@@ -11,10 +12,27 @@ export class UserService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
     private readonly logger: Logger,
-  ) {}
+  ) {
+    this.logger = new Logger(UserService.name);
+  }
 
   async create(createUserDto: CreateUserDto) {
-    return await this.userRepository.save(createUserDto);
+    const user = await this.userRepository.findOneBy({
+      username: createUserDto.username,
+    });
+    if (user) {
+      throw new HttpException(UserLog.DUPLICATE, HttpStatus.CONFLICT);
+    }
+    try {
+      return await this.userRepository.save(createUserDto);
+    } catch (exception) {
+      this.logger.debug({ createUserDto });
+      this.logger.error(exception);
+      throw new HttpException(
+        UserLog.CREATE_FAILED,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   async findAll() {
@@ -24,23 +42,42 @@ export class UserService {
   async findOne(id: number) {
     const user = await this.userRepository.findOneBy({ id });
     if (!user) {
-      throw new HttpException(
-        'The requested user could not be found.',
-        HttpStatus.NOT_FOUND,
-      );
+      throw new HttpException(UserLog.NOT_FOUND, HttpStatus.NOT_FOUND);
     }
     return user;
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
-    const user = await this.findOne(id);
+    const user = await this.userRepository.findOneBy({ id });
     if (!user) {
-      return;
+      throw new HttpException(UserLog.NOT_FOUND, HttpStatus.NOT_FOUND);
     }
-    return this.userRepository.update({ id, ...updateUserDto }, user);
+    try {
+      return await this.userRepository.save({ id, ...updateUserDto });
+    } catch (exception) {
+      this.logger.debug({ prev: user, next: { id, ...updateUserDto } });
+      this.logger.error(exception);
+      throw new HttpException(
+        UserLog.UPDATE_FAILED,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
-  remove(id: number) {
-    return this.userRepository.delete({ id });
+  async remove(id: number) {
+    const user = await this.userRepository.findOneBy({ id });
+    if (!user) {
+      throw new HttpException(UserLog.NOT_FOUND, HttpStatus.NOT_FOUND);
+    }
+    try {
+      await this.userRepository.delete({ id });
+    } catch (exception) {
+      this.logger.debug({ id });
+      this.logger.error(exception);
+      throw new HttpException(
+        UserLog.DELETE_FAILED,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }
