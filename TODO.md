@@ -1,8 +1,9 @@
 # api
 ## must-have
-- [x] db migration
-- [ ] user module
-- [ ] clean up user module
+- [ ] db migration
+- [x] user module
+- [x] clean up user module
+- [ ] ability to reset password
 - [ ] auth/login
 
 # ui
