@@ -1,15 +1,15 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { HealthCheck, HealthCheckResult } from '@nestjs/terminus';
-import { HealthzService } from './healthz.service';
+import { HealthService } from './health.service';
 
-@Controller('healthz')
-export class HealthzController {
-  public constructor(private readonly healthzService: HealthzService) {}
+@Controller('health')
+export class HealthController {
+  public constructor(private readonly healthzService: HealthService) {}
 
   @Get()
   @HealthCheck()
-  @ApiTags('healthz')
+  @ApiTags('health')
   public async check(): Promise<HealthCheckResult> {
     return await this.healthzService.checkAll();
   }

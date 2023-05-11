@@ -11,7 +11,9 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './user.create.dto';
 import { UpdateUserDto } from './user.update.dto';
 import {
+  ApiBadRequestResponse,
   ApiConflictResponse,
+  ApiCreatedResponse,
   ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
@@ -42,7 +44,10 @@ export class UserController {
     description: 'tier of the user',
     enum: UserTier,
   })
-  @ApiOkResponse()
+  @ApiCreatedResponse()
+  @ApiBadRequestResponse({
+    description: 'The given request body is not valid.',
+  })
   @ApiConflictResponse({
     description: UserLog.DUPLICATE,
   })
@@ -68,6 +73,9 @@ export class UserController {
     description: 'id of the user',
   })
   @ApiOkResponse()
+  @ApiBadRequestResponse({
+    description: 'The given request param is not valid.',
+  })
   @ApiNotFoundResponse({
     description: UserLog.NOT_FOUND,
   })
@@ -83,6 +91,9 @@ export class UserController {
     description: 'id of the user',
   })
   @ApiOkResponse()
+  @ApiBadRequestResponse({
+    description: 'The given request param is not valid.',
+  })
   @ApiNotFoundResponse({
     description: UserLog.NOT_FOUND,
   })
@@ -101,6 +112,9 @@ export class UserController {
     description: 'id of the user',
   })
   @ApiOkResponse()
+  @ApiBadRequestResponse({
+    description: 'The given request param is not valid.',
+  })
   @ApiNotFoundResponse({
     description: UserLog.NOT_FOUND,
   })

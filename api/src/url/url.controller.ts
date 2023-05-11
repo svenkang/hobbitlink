@@ -33,9 +33,7 @@ export class UrlController {
     required: false,
     description: 'order the query by highest clicks',
   })
-  @ApiOkResponse({
-    description: 'All urls have been successfully fetched',
-  })
+  @ApiOkResponse()
   public async getUrls(
     @Query() paginationQuery: PaginationQueryDto,
   ): Promise<Url[]> {
@@ -44,9 +42,7 @@ export class UrlController {
 
   @Post()
   @ApiTags('url')
-  @ApiCreatedResponse({
-    description: 'The url has been successfully shortened.',
-  })
+  @ApiCreatedResponse()
   @ApiBadRequestResponse({
     description: 'The given request body is not valid.',
   })

@@ -6,7 +6,7 @@ import {
 } from '@nestjs/terminus';
 
 @Injectable()
-export class HealthzService {
+export class HealthService {
   public constructor(
     private readonly health: HealthCheckService,
     private readonly db: TypeOrmHealthIndicator,

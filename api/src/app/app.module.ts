@@ -2,7 +2,7 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppConfig } from './app.config';
 import { UrlsModule } from '../url/url.module';
-import { HealthzModule } from './../healthz/healthz.module';
+import { HealthModule } from './../health/health.module';
 import { HttpLoggerMiddleware } from './../logger/logger.middleware';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -15,7 +15,7 @@ import { UserModule } from 'src/user/user.module';
   imports: [
     ConfigModule.forRoot(AppConfig),
     TypeOrmModule.forRootAsync(TypeOrmAsyncConfig),
-    HealthzModule,
+    HealthModule,
     UrlsModule,
     ProxyModule,
     UserModule,

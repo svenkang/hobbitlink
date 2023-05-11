@@ -5,11 +5,11 @@ import {
   TypeOrmHealthIndicator,
 } from '@nestjs/terminus';
 import { Test, TestingModule } from '@nestjs/testing';
-import { HealthzService } from './healthz.service';
-import { mockHealthCheckResult } from './healthz.mock';
+import { HealthService } from './health.service';
+import { mockHealthCheckResult } from './health.mock';
 
-describe('HealthzService', () => {
-  let service: HealthzService;
+describe('HealthService', () => {
+  let service: HealthService;
   const mockHealth = {
     check: jest
       .fn()
@@ -40,7 +40,7 @@ describe('HealthzService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        HealthzService,
+        HealthService,
         {
           provide: HttpHealthIndicator,
           useValue: mockHttp,
@@ -56,7 +56,7 @@ describe('HealthzService', () => {
       ],
     }).compile();
 
-    service = module.get<HealthzService>(HealthzService);
+    service = module.get<HealthService>(HealthService);
   });
 
   it('should return valid health check', async () => {

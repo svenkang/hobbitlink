@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { HealthzController } from './healthz.controller';
-import { HealthzService } from './healthz.service';
-import { mockHealthCheckResult } from './healthz.mock';
+import { HealthController } from './health.controller';
+import { HealthService } from './health.service';
+import { mockHealthCheckResult } from './health.mock';
 
-describe('HealthzController', () => {
-  let controller: HealthzController;
-  const mockHealthzService = {
+describe('HealthController', () => {
+  let controller: HealthController;
+  const mockHealthService = {
     checkAll: jest.fn().mockImplementation(
       () =>
         new Promise((resolve, reject) => {
@@ -17,16 +17,16 @@ describe('HealthzController', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [HealthzController],
+      controllers: [HealthController],
       providers: [
         {
-          provide: HealthzService,
-          useValue: mockHealthzService,
+          provide: HealthService,
+          useValue: mockHealthService,
         },
       ],
     }).compile();
 
-    controller = module.get<HealthzController>(HealthzController);
+    controller = module.get<HealthController>(HealthController);
   });
 
   it('should respond with health check', async () => {
