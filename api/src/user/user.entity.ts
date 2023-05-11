@@ -30,7 +30,7 @@ export class User {
     enum: UserTier,
     default: UserTier.BASIC,
   })
-  userRole: UserTier;
+  userTier: UserTier;
 
   @CreateDateColumn()
   createdAt: Date;

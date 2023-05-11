@@ -29,11 +29,18 @@ export class UserService {
     const { key, hash } = this.cryptoService.getHmac(createUserDto.password);
 
     try {
-      return await this.userRepository.save({
+      const newUser = await this.userRepository.save({
         ...createUserDto,
         passwordKey: key,
         password: hash,
       });
+      return {
+        id: newUser.id,
+        username: newUser.username,
+        userTier: newUser.userTier,
+        createdAt: newUser.createdAt,
+        updatedAt: newUser.updatedAt,
+      };
     } catch (exception) {
       this.logger.debug({ createUserDto });
       this.logger.error(exception);
@@ -45,11 +52,28 @@ export class UserService {
   }
 
   async findAll() {
-    return await this.userRepository.find();
+    return await this.userRepository.find({
+      select: {
+        id: true,
+        username: true,
+        userTier: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
   }
 
   async findOne(id: number) {
-    const user = await this.userRepository.findOneBy({ id });
+    const user = await this.userRepository.findOne({
+      where: { id },
+      select: {
+        id: true,
+        username: true,
+        userTier: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
     if (!user) {
       throw new HttpException(UserLog.NOT_FOUND, HttpStatus.NOT_FOUND);
     }
@@ -62,7 +86,17 @@ export class UserService {
       throw new HttpException(UserLog.NOT_FOUND, HttpStatus.NOT_FOUND);
     }
     try {
-      return await this.userRepository.save({ id, ...updateUserDto });
+      const updatedUser = await this.userRepository.save({
+        id,
+        ...updateUserDto,
+      });
+      return {
+        id: updatedUser.id,
+        username: updatedUser.username,
+        userTier: updatedUser.userTier,
+        createdAt: updatedUser.createdAt,
+        updatedAt: updatedUser.updatedAt,
+      };
     } catch (exception) {
       this.logger.debug({ prev: user, next: { id, ...updateUserDto } });
       this.logger.error(exception);
