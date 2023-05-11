@@ -5,12 +5,14 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserLog } from './user.interface';
+import { CryptoService } from 'src/crypto/crypto.service';
 
 @Injectable()
 export class UserService {
   public constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+    private readonly cryptoService: CryptoService,
     private readonly logger: Logger,
   ) {
     this.logger = new Logger(UserService.name);
@@ -23,8 +25,15 @@ export class UserService {
     if (user) {
       throw new HttpException(UserLog.DUPLICATE, HttpStatus.CONFLICT);
     }
+
+    const { key, hash } = this.cryptoService.getHmac(createUserDto.password);
+
     try {
-      return await this.userRepository.save(createUserDto);
+      return await this.userRepository.save({
+        ...createUserDto,
+        passwordKey: key,
+        password: hash,
+      });
     } catch (exception) {
       this.logger.debug({ createUserDto });
       this.logger.error(exception);

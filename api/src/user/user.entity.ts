@@ -5,11 +5,11 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { USERNAME_MAX_CHAR, UserTier } from './user.interface';
 import {
+  PASSWORD_KEY_MAX_CHAR,
   PASSWORD_MAX_CHAR,
-  USERNAME_MAX_CHAR,
-  UserTier,
-} from './user.interface';
+} from 'src/crypto/crypto.interface';
 
 @Entity()
 export class User {
@@ -21,6 +21,9 @@ export class User {
 
   @Column('varchar', { length: PASSWORD_MAX_CHAR })
   password: string;
+
+  @Column('varchar', { length: PASSWORD_KEY_MAX_CHAR })
+  passwordKey: string;
 
   @Column({
     type: 'enum',

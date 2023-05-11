@@ -10,6 +10,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmAsyncConfig } from '../database/database.config';
 import { ProxyModule } from './../proxy/proxy.module';
 import { UserModule } from 'src/user/user.module';
+import { ExpirationModule } from 'src/expiration/expiration.module';
+import { CryptoModule } from 'src/crypto/crypto.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { UserModule } from 'src/user/user.module';
     UrlsModule,
     ProxyModule,
     UserModule,
+    ExpirationModule,
+    CryptoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
