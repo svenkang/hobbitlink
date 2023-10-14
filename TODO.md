@@ -1,10 +1,18 @@
+# app
+- [ ] docker production optimization
+- [ ] deployment to cloud
+
 # api
 ## must-have
-- [ ] db migration
+- [ ] authentication
+- [ ] authorization
+- [ ] rename hobbitlink
+- [ ] graceful termination
+- [ ] add testing
+- [x] ability to reset password
+- [x] db migration
 - [x] user module
 - [x] clean up user module
-- [ ] ability to reset password
-- [ ] auth/login
 
 # ui
 ## must-have
@@ -25,6 +33,3 @@
 - [ ] dashboard page
 ## nice-to-have
 
-# app
-- [ ] docker production optimization
-- [ ] deployment to cloud
