@@ -4,7 +4,7 @@ import * as Joi from 'joi';
 import { WinstonModule } from 'nest-winston';
 import { WinstonConfig } from 'src/logger/logger.config';
 
-export const AppConfig: ConfigModuleOptions = {
+export const ConfigOptions: ConfigModuleOptions = {
   isGlobal: true,
   ignoreEnvFile: true,
   validationSchema: Joi.object({
@@ -17,6 +17,8 @@ export const AppConfig: ConfigModuleOptions = {
     MYSQL_USER: Joi.string().required(),
     MYSQL_PASSWORD: Joi.string().required(),
     MYSQL_DATABASE: Joi.string().required(),
+    SESSION_KEY: Joi.string().required(),
+    COOKIE_MAX_AGE: Joi.number().required(),
   }),
   validationOptions: {
     allowUnknown: true,

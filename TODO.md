@@ -6,9 +6,8 @@
 ## must-have
 - [ ] authentication
 - [ ] authorization
-- [ ] rename hobbitlink
 - [ ] graceful termination
-- [ ] add testing
+- [x] add testing
 - [x] ability to reset password
 - [x] db migration
 - [x] user module

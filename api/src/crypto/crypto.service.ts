@@ -15,10 +15,13 @@ export class CryptoService {
    * and the key used to hash the plaintext
    *
    * @param plaintext
+   * @param key
    * @returns Hmac
    */
-  public getHmac(plaintext: string): Hmac {
-    const key = nanoid(PASSWORD_KEY_MAX_CHAR);
+  public getHmac(
+    plaintext: string,
+    key: string = nanoid(PASSWORD_KEY_MAX_CHAR),
+  ): Hmac {
     const hash = createHmac(ENCRYPTION_ALGORITHM, key)
       .update(plaintext)
       .digest(DIGEST_STRATEGY);
@@ -27,5 +30,21 @@ export class CryptoService {
       key,
       hash,
     };
+  }
+
+  /**
+   * Compares the given ciphertext with plaintext and key
+   *
+   * @param plaintext
+   * @param ciphertext
+   * @param key
+   * @returns
+   */
+  public compareHmac(plaintext: string, ciphertext: string, key: string) {
+    const { hash } = this.getHmac(plaintext, key);
+    if (hash === ciphertext) {
+      return true;
+    }
+    return false;
   }
 }

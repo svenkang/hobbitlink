@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppConfig } from './app.config';
+import { ConfigOptions } from './app.config';
 import { UrlsModule } from '../url/url.module';
 import { HealthModule } from './../health/health.module';
 import { HttpLoggerMiddleware } from './../logger/logger.middleware';
@@ -12,11 +12,13 @@ import { ProxyModule } from './../proxy/proxy.module';
 import { UserModule } from 'src/user/user.module';
 import { ExpirationModule } from 'src/expiration/expiration.module';
 import { CryptoModule } from 'src/crypto/crypto.module';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(AppConfig),
+    ConfigModule.forRoot(ConfigOptions),
     TypeOrmModule.forRootAsync(TypeOrmAsyncConfig),
+    AuthModule,
     HealthModule,
     UrlsModule,
     ProxyModule,

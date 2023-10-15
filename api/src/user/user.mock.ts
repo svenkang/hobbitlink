@@ -1,6 +1,7 @@
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { CryptoService } from 'src/crypto/crypto.service';
+import { Logger } from '@nestjs/common';
 
 export const mockUserRepository = {
   findOneBy: jest.fn((options: any) => {
@@ -20,12 +21,12 @@ export const mockCryptoService = {
     key: 'mockKey',
     hash: 'mockHash',
   })),
-} as CryptoService;
+} as unknown as CryptoService;
 
 export const mockLogger = {
   error: jest.fn(),
   debug: jest.fn(),
-};
+} as unknown as Logger;
 
 export const mockUsers = [
   {

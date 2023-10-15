@@ -75,6 +75,31 @@ export class UserService {
   }
 
   /**
+   * Find the given user by username
+   *
+   * @param username
+   * @returns
+   */
+  async find(username: string) {
+    const user = await this.userRepository.findOne({
+      where: { username },
+      select: {
+        id: true,
+        username: true,
+        userTier: true,
+        password: true,
+        passwordKey: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+    if (!user) {
+      throw new HttpException(UserLog.NOT_FOUND, HttpStatus.NOT_FOUND);
+    }
+    return user;
+  }
+
+  /**
    * Find the given user by ID
    *
    * @param id

@@ -29,7 +29,7 @@ export class HttpLoggerMiddleware implements NestMiddleware {
       const responseTime = Date.now() - requestTime || 0;
 
       const isError = statusCode >= 400 && statusCode <= 520;
-      const contents = {
+      const message = {
         params,
         method,
         url,
@@ -41,9 +41,9 @@ export class HttpLoggerMiddleware implements NestMiddleware {
       };
 
       if (isError) {
-        this.logger.error(contents);
+        this.logger.error({ message });
       } else {
-        this.logger.log(contents);
+        this.logger.log({ message });
       }
     });
     next();
