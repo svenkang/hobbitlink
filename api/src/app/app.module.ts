@@ -13,11 +13,14 @@ import { UserModule } from 'src/user/user.module';
 import { ExpirationModule } from 'src/expiration/expiration.module';
 import { CryptoModule } from 'src/crypto/crypto.module';
 import { AuthModule } from 'src/auth/auth.module';
+import { RedisAsyncConfig } from 'src/cache/cache.config';
+import { RedisModule } from '@liaoliaots/nestjs-redis';
 
 @Module({
   imports: [
     ConfigModule.forRoot(ConfigOptions),
     TypeOrmModule.forRootAsync(TypeOrmAsyncConfig),
+    RedisModule.forRootAsync(RedisAsyncConfig),
     AuthModule,
     HealthModule,
     UrlsModule,

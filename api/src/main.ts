@@ -9,9 +9,12 @@ import { NestConfig } from './app/app.config';
 import * as session from 'express-session';
 import * as passport from 'passport';
 import { AuthGuard } from './auth/auth.guard';
+import { RedisService } from '@liaoliaots/nestjs-redis';
+import RedisStore from 'connect-redis';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, NestConfig);
+  const redisService = app.get(RedisService);
   const configService = app.get(ConfigService);
   const authGuard = app.get(AuthGuard);
   const logger = app.get(Logger);
@@ -37,6 +40,9 @@ async function bootstrap() {
 
   app.use(
     session({
+      store: new RedisStore({
+        client: redisService.getClient(),
+      }),
       resave: false,
       secret: sessionKey,
       saveUninitialized: false,

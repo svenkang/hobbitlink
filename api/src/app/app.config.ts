@@ -19,6 +19,9 @@ export const ConfigOptions: ConfigModuleOptions = {
     MYSQL_DATABASE: Joi.string().required(),
     SESSION_KEY: Joi.string().required(),
     COOKIE_MAX_AGE: Joi.number().required(),
+    REDIS_HOST: Joi.string().required(),
+    REDIS_PORT: Joi.number().required(),
+    REDIS_PASSWORD: Joi.string().required(),
   }),
   validationOptions: {
     allowUnknown: true,
