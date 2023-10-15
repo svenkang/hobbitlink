@@ -1,20 +1,4 @@
-# app
-- [ ] docker production optimization
-- [ ] deployment to cloud
-
-# api
-## must-have
-- [ ] authentication
-- [ ] authorization
-- [ ] graceful termination
-- [x] add testing
-- [x] ability to reset password
-- [x] db migration
-- [x] user module
-- [x] clean up user module
-
-# ui
-## must-have
+### ui
 - [x] logos
 - [x] logger
 - [x] git actions
@@ -30,5 +14,19 @@
   - main content design
 - [ ] login page
 - [ ] dashboard page
-## nice-to-have
+
+### api
+- [x] authentication
+- [x] authorization
+- [x] api throttle
+- [x] add testing
+- [x] ability to reset password
+- [x] db migration
+- [x] user module
+- [x] clean up user module
+- [ ] after-deploy: graceful termination
+
+### app
+- [ ] docker production optimization
+- [ ] deployment to cloud
 
