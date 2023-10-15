@@ -1,5 +1,10 @@
 import { NestApplicationOptions } from '@nestjs/common';
-import { ConfigModuleOptions } from '@nestjs/config';
+import {
+  ConfigModule,
+  ConfigModuleOptions,
+  ConfigService,
+} from '@nestjs/config';
+import { ThrottlerAsyncOptions } from '@nestjs/throttler';
 import * as Joi from 'joi';
 import { WinstonModule } from 'nest-winston';
 import { WinstonConfig } from 'src/logger/logger.config';
@@ -22,11 +27,24 @@ export const ConfigOptions: ConfigModuleOptions = {
     REDIS_HOST: Joi.string().required(),
     REDIS_PORT: Joi.number().required(),
     REDIS_PASSWORD: Joi.string().required(),
+    API_THROTTLE_TTL: Joi.number().required(),
+    API_THROTTLE_LIMIT: Joi.number().required(),
   }),
   validationOptions: {
     allowUnknown: true,
     abortEarly: true,
   },
+};
+
+export const ThrottlerOptions: ThrottlerAsyncOptions = {
+  imports: [ConfigModule],
+  inject: [ConfigService],
+  useFactory: (config: ConfigService) => [
+    {
+      ttl: config.get<number>('API_THROTTLE_TTL', { infer: true }),
+      limit: config.get<number>('API_THROTTLE_LIMIT', { infer: true }),
+    },
+  ],
 };
 
 export const NestConfig: NestApplicationOptions = {

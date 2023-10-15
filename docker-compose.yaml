@@ -51,6 +51,8 @@ services:
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
       - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - API_THROTTLE_TTL=${API_THROTTLE_TTL}
+      - API_THROTTLE_LIMIT=${API_THROTTLE_LIMIT}
   db:
     container_name: db
     build: './db'

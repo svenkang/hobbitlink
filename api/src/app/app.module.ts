@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ConfigOptions } from './app.config';
+import { ConfigOptions, ThrottlerOptions } from './app.config';
 import { UrlsModule } from '../url/url.module';
 import { HealthModule } from './../health/health.module';
 import { HttpLoggerMiddleware } from './../logger/logger.middleware';
@@ -15,12 +15,14 @@ import { CryptoModule } from 'src/crypto/crypto.module';
 import { AuthModule } from 'src/auth/auth.module';
 import { RedisAsyncConfig } from 'src/cache/cache.config';
 import { RedisModule } from '@liaoliaots/nestjs-redis';
+import { ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
     ConfigModule.forRoot(ConfigOptions),
     TypeOrmModule.forRootAsync(TypeOrmAsyncConfig),
     RedisModule.forRootAsync(RedisAsyncConfig),
+    ThrottlerModule.forRootAsync(ThrottlerOptions),
     AuthModule,
     HealthModule,
     UrlsModule,
