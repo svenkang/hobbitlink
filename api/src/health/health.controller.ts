@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { HealthCheck, HealthCheckResult } from '@nestjs/terminus';
 import { HealthService } from './health.service';
-import { IsPublic } from 'src/auth/auth.guard';
+import { IsPublic } from './../auth/auth.guard';
 
 @Controller('health')
 export class HealthController {
