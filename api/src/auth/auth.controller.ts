@@ -1,9 +1,11 @@
 import {
   Controller,
+  Delete,
   HttpCode,
   HttpStatus,
   Post,
   Request,
+  UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
 import {
@@ -11,6 +13,7 @@ import {
   ApiOkResponse,
   ApiQuery,
   ApiTags,
+  ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
 import { LocalAuthGuard } from './local.guard';
 import { User } from 'src/user/user.entity';
@@ -35,7 +38,24 @@ export class AuthController {
   })
   @ApiOkResponse()
   @ApiForbiddenResponse({ description: 'Failed to login' })
-  public login(@Request() req): Partial<User> {
-    return req.user;
+  public login(@Request() request): Partial<User> {
+    return request.user;
+  }
+
+  @IsPublic()
+  @Delete('logout')
+  @HttpCode(HttpStatus.OK)
+  @ApiTags('logout')
+  @ApiOkResponse()
+  @ApiUnauthorizedResponse()
+  public logout(@Request() request): void {
+    if (!request.isAuthenticated()) {
+      throw new UnauthorizedException();
+    }
+    request.logout((error) => {
+      if (error) {
+        throw new UnauthorizedException();
+      }
+    });
   }
 }
