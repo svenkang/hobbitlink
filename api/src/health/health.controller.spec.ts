@@ -13,6 +13,7 @@ describe('HealthController', () => {
           reject({});
         }),
     ),
+    checkLiveness: jest.fn().mockImplementation(() => mockHealthCheckResult),
   };
 
   beforeEach(async () => {
@@ -29,9 +30,16 @@ describe('HealthController', () => {
     controller = module.get<HealthController>(HealthController);
   });
 
+  it('should respond with liveness check', async () => {
+    expect(controller).toBeDefined();
+    const resp = await controller.checkLiveness();
+    expect(resp).toBeDefined();
+    expect(resp.status).toBe('ok');
+  });
+
   it('should respond with health check', async () => {
     expect(controller).toBeDefined();
-    const resp = await controller.check();
+    const resp = await controller.checkHealth();
     expect(resp).toBeDefined();
     expect(resp.status).toBe('ok');
   });

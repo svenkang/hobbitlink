@@ -9,7 +9,7 @@ import { USERNAME_MAX_CHAR, UserTier } from './user.interface';
 import {
   PASSWORD_KEY_MAX_CHAR,
   PASSWORD_MAX_CHAR,
-} from 'src/crypto/crypto.interface';
+} from './../crypto/crypto.interface';
 
 @Entity()
 export class User {

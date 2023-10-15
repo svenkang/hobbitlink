@@ -11,6 +11,12 @@ export class ProxyService {
     private readonly urlRepository: Repository<Url>,
   ) {}
 
+  /**
+   * Parse the given hobbitlink to actual link
+   *
+   * @param getProxyUrlDto
+   * @returns
+   */
   public async toUrl(getProxyUrlDto: GetProxyUrlDto): Promise<Url | undefined> {
     const url = await this.urlRepository.findOneBy({
       hobbitLink: getProxyUrlDto.hobbitLink,

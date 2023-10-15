@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserLog } from './user.interface';
-import { CryptoService } from 'src/crypto/crypto.service';
+import { CryptoService } from './../crypto/crypto.service';
 
 @Injectable()
 export class UserService {
@@ -18,6 +18,12 @@ export class UserService {
     this.logger = new Logger(UserService.name);
   }
 
+  /**
+   * Create a new user
+   *
+   * @param createUserDto
+   * @returns
+   */
   async create(createUserDto: CreateUserDto) {
     const user = await this.userRepository.findOneBy({
       username: createUserDto.username,
@@ -51,6 +57,11 @@ export class UserService {
     }
   }
 
+  /**
+   * Find all users
+   *
+   * @returns
+   */
   async findAll() {
     return await this.userRepository.find({
       select: {
@@ -63,6 +74,12 @@ export class UserService {
     });
   }
 
+  /**
+   * Find the given user by ID
+   *
+   * @param id
+   * @returns
+   */
   async findOne(id: number) {
     const user = await this.userRepository.findOne({
       where: { id },
@@ -80,6 +97,13 @@ export class UserService {
     return user;
   }
 
+  /**
+   * Update the given user by ID
+   *
+   * @param id
+   * @param updateUserDto
+   * @returns
+   */
   async update(id: number, updateUserDto: UpdateUserDto) {
     const user = await this.userRepository.findOneBy({ id });
     if (!user) {
@@ -107,6 +131,11 @@ export class UserService {
     }
   }
 
+  /**
+   * Remove the given user by ID
+   *
+   * @param id
+   */
   async remove(id: number) {
     const user = await this.userRepository.findOneBy({ id });
     if (!user) {

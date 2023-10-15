@@ -1,17 +1,13 @@
 import { Injectable } from '@nestjs/common';
-
-export interface WelcomeMessage {
-  message: string;
-  visitedAt: string;
-}
-
-export const WELCOME_MESSAGE = {
-  message: 'Welcome to Hobbit Link API 💚',
-  visitedAt: new Date().toISOString(),
-};
+import { WELCOME_MESSAGE, WelcomeMessage } from './app.interface';
 
 @Injectable()
 export class AppService {
+  /**
+   * Get the welcome message
+   *
+   * @returns WelcomeMessage
+   */
   getWelcome(): WelcomeMessage {
     return WELCOME_MESSAGE;
   }

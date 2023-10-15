@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { AppService, WelcomeMessage } from './app.service';
+import { AppService } from './app.service';
+import { WelcomeMessage } from './app.interface';
 
 @Controller()
 export class AppController {

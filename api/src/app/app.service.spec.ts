@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppService } from './app.service';
-import { WELCOME_MESSAGE } from './app.service';
+import { WELCOME_MESSAGE } from './app.interface';
 
 describe('AppService', () => {
   let appService: AppService;

@@ -10,7 +10,19 @@ export class HealthController {
   @Get()
   @HealthCheck()
   @ApiTags('health')
-  public async check(): Promise<HealthCheckResult> {
+  public checkHealth(): HealthCheckResult {
+    return this.healthzService.checkLiveness();
+  }
+
+  @HealthCheck()
+  @ApiTags('liveness')
+  public checkLiveness(): HealthCheckResult {
+    return this.healthzService.checkLiveness();
+  }
+
+  @HealthCheck()
+  @ApiTags('readiness')
+  public async checkReadiness(): Promise<HealthCheckResult> {
     return await this.healthzService.checkAll();
   }
 }
