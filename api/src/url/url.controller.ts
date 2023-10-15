@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
@@ -11,6 +11,8 @@ import { Url } from './url.entity';
 import { CreateHobbitResponse } from './url.interface';
 import { UrlService } from './url.service';
 import { PaginationQueryDto } from './url.read.dto';
+import { PermissionGuard, SetPermissions } from './../auth/auth.guard';
+import { UserTier } from './../user/user.interface';
 
 @Controller('url')
 export class UrlController {
@@ -34,6 +36,8 @@ export class UrlController {
     description: 'order the query by highest clicks',
   })
   @ApiOkResponse()
+  @SetPermissions([UserTier.BASIC, UserTier.PRO])
+  @UseGuards(PermissionGuard)
   public async getUrls(
     @Query() paginationQuery: PaginationQueryDto,
   ): Promise<Url[]> {
@@ -46,6 +50,8 @@ export class UrlController {
   @ApiBadRequestResponse({
     description: 'The given request body is not valid.',
   })
+  @SetPermissions([UserTier.BASIC, UserTier.PRO])
+  @UseGuards(PermissionGuard)
   public async createUrl(
     @Body() createHobbitLinkDto: CreateHobbitLinkDto,
   ): Promise<CreateHobbitResponse> {

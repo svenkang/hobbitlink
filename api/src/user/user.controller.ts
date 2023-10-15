@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './user.create.dto';
@@ -22,11 +23,13 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { UserLog, UserTier } from './user.interface';
+import { PermissionGuard, Public, SetPermissions } from 'src/auth/auth.guard';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @Public()
   @ApiTags('user')
   @ApiQuery({
     name: 'username',
@@ -62,6 +65,8 @@ export class UserController {
   @ApiTags('user')
   @ApiOkResponse()
   @Get()
+  @SetPermissions([UserTier.SUPER])
+  @UseGuards(PermissionGuard)
   async findAll() {
     return await this.userService.findAll();
   }
@@ -80,6 +85,8 @@ export class UserController {
     description: UserLog.NOT_FOUND,
   })
   @Get(':id')
+  @SetPermissions([UserTier.SUPER])
+  @UseGuards(PermissionGuard)
   async findOne(@Param('id') id: string) {
     return await this.userService.findOne(+id);
   }
@@ -101,6 +108,8 @@ export class UserController {
     description: UserLog.UPDATE_FAILED,
   })
   @Patch(':id')
+  @SetPermissions([UserTier.PRO])
+  @UseGuards(PermissionGuard)
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return await this.userService.update(+id, updateUserDto);
   }
@@ -122,6 +131,8 @@ export class UserController {
     description: UserLog.DELETE_FAILED,
   })
   @Delete(':id')
+  @SetPermissions([UserTier.SUPER])
+  @UseGuards(PermissionGuard)
   async remove(@Param('id') id: string) {
     return await this.userService.remove(+id);
   }

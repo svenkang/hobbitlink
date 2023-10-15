@@ -42,16 +42,12 @@ export class AuthController {
     return request.user;
   }
 
-  @Public()
   @Delete('logout')
   @HttpCode(HttpStatus.OK)
   @ApiTags('logout')
   @ApiOkResponse()
   @ApiUnauthorizedResponse()
   public logout(@Request() request): void {
-    if (!request.isAuthenticated()) {
-      throw new UnauthorizedException();
-    }
     request.logout((error) => {
       if (error) {
         throw new UnauthorizedException();
