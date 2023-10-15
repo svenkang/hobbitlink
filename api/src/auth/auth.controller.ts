@@ -17,11 +17,11 @@ import {
 } from '@nestjs/swagger';
 import { LocalAuthGuard } from './local.guard';
 import { User } from 'src/user/user.entity';
-import { IsPublic } from './auth.guard';
+import { Public } from './auth.guard';
 
 @Controller('auth')
 export class AuthController {
-  @IsPublic()
+  @Public()
   @UseGuards(LocalAuthGuard)
   @HttpCode(HttpStatus.OK)
   @Post('login')
@@ -42,7 +42,7 @@ export class AuthController {
     return request.user;
   }
 
-  @IsPublic()
+  @Public()
   @Delete('logout')
   @HttpCode(HttpStatus.OK)
   @ApiTags('logout')

@@ -21,4 +21,4 @@ export class AuthGuard implements CanActivate {
   }
 }
 
-export const IsPublic = () => SetMetadata(publicEndpoint, true);
+export const Public = () => SetMetadata(publicEndpoint, true);
