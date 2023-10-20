@@ -1,13 +1,10 @@
-FROM node:16.17.0-alpine3.16@sha256:bf1e1c4761cd5e417b5ed60d5c599266270b728878089efcd1d63a8bd1dde446
-RUN mkdir /app
-WORKDIR /app
+FROM node:18.18.0-alpine3.18@sha256:a0b787b0d53feacfa6d606fb555e0dbfebab30573277f1fe25148b05b66fa097
+WORKDIR /usr/src/app
 COPY package*.json ./
 COPY tsconfig*.json ./
-COPY .babelrc ./
 RUN npm install
-COPY ./public ./public
-COPY ./pages ./pages
-COPY ./styles ./styles
+COPY . .
+RUN npm run build
 EXPOSE ${UI_PORT}
-CMD [ "npm run dev" ]
+CMD ["npm", "run", "dev"]
 ENTRYPOINT [ "sh", "-c" ]
