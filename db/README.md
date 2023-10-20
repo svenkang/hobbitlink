@@ -7,11 +7,11 @@
 
 ## Build
 ```bash
-$ docker-compose build
+docker-compose build
 ```
 
 ## Run
 ```bash
-$ docker-compose up
+docker-compose up
 ```
 
