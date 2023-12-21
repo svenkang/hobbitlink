@@ -10,7 +10,9 @@ networks:
 services:
   ui:
     container_name: ui
-    build: './ui'
+    build: 
+      context: './ui'
+      dockerfile: Dockerfile
     networks:
       - hobbitlink
     volumes:
