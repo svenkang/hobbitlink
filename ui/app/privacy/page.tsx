@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - Hobbitlink',
+  description: 'Privacy policy from Hobbitlink',
+};
+
 export default function Privacy() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">

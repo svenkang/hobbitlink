@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service - Hobbitlink',
+  description: 'Terms of service from Hobbitlink',
+};
+
 export default function Terms() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">

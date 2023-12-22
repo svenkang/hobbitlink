@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Sign into an account with Hobbitlink',
 };
 
-export default function Signup() {
+export default function SignIn() {
   return (
     <>
       <div className="container relative hidden h-[800px] flex-col items-center justify-items-center md:grid lg:max-w-none lg:px-0">
@@ -22,9 +22,7 @@ export default function Signup() {
                 alt="Hobbitlink Logo"
                 className="mr-2 h-12 w-12 pb-2"
               />
-              <h1 className="text-2xl font-semibold tracking-tight">
-                Welcome Back!
-              </h1>
+              <h1 className="text-2xl font-semibold tracking-tight">Sign in</h1>
               <div className="text-sm text-muted-foreground">
                 Enter your email below to sign into your account
               </div>

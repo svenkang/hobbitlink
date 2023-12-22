@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Create an account with Hobbitlink',
 };
 
-export default function Signup() {
+export default function SignUp() {
   return (
     <>
       <div className="container relative hidden h-[800px] flex-col items-center justify-items-center md:grid lg:max-w-none lg:px-0">
