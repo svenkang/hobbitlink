@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/svenkang/hobbitlink" target="blank"><img src="https://github.com/svenkang/hobbitlink/blob/main/ui/public/images/logo.svg" width="80" alt="Hobbitlink Logo" /></a>
+  <a href="https://github.com/svenkang/hobbitlink" target="blank"><img src="https://github.com/svenkang/hobbitlink/blob/main/ui/public/logo.svg" width="80" alt="Hobbitlink Logo" /></a>
 </p>
 <p align="center">A simple url shortener application built with <a href="https://docs.nestjs.com/" target="_blank">Nest</a> and <a href="https://nextjs.org/docs/getting-started/" target="_blank">Next</a>.</p>
 
