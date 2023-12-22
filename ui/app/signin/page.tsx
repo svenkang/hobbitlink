@@ -23,7 +23,7 @@ export default function Signup() {
                 className="mr-2 h-12 w-12 pb-2"
               />
               <h1 className="text-2xl font-semibold tracking-tight">
-                Welcome back
+                Welcome Back!
               </h1>
               <div className="text-sm text-muted-foreground">
                 Enter your email below to sign into your account

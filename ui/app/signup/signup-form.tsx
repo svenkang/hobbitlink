@@ -20,6 +20,7 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
+              autoFocus
             />
             <Input
               id="password"

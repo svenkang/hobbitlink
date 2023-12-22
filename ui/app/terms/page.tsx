@@ -1,6 +1,6 @@
 export default function Terms() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center p-24">
       <h1 className="text-4xl font-bold mb-6">Terms of Service</h1>
       <p className="text-gray-600 text-sm">Last Updated: December 22nd, 2023</p>
       <div className="p-12 w-1/2">

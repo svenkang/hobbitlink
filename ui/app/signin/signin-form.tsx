@@ -20,6 +20,7 @@ export function SignInForm({ className, ...props }: SignInFormProps) {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
+              autoFocus
             />
             <Input
               id="password"
