@@ -1,3 +1,4 @@
+import { Dashboard } from './_dashboard';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,10 +6,6 @@ export const metadata: Metadata = {
   description: 'Dashboard Hobbitlink',
 };
 
-export default function Dashboard() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Dashboard
-    </main>
-  );
+export default function DashboardPage() {
+  return <Dashboard />;
 }

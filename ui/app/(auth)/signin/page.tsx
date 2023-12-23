@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import logo from '@/public/logo.svg';
-import { SignInForm } from './signin-form';
+import { SignInForm } from './_signin-form';
 
 export const metadata: Metadata = {
   title: 'Sign in - Hobbitlink',

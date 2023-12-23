@@ -1,6 +1,7 @@
 import {
   Controller,
   Delete,
+  Get,
   HttpCode,
   HttpStatus,
   Post,
@@ -42,6 +43,7 @@ export class AuthController {
     return request.user;
   }
 
+  @Public()
   @Delete('logout')
   @HttpCode(HttpStatus.OK)
   @ApiTags('logout')
@@ -53,5 +55,14 @@ export class AuthController {
         throw new UnauthorizedException();
       }
     });
+  }
+
+  @Get('me')
+  @HttpCode(HttpStatus.OK)
+  @ApiTags('me')
+  @ApiOkResponse()
+  public me(@Request() request): Partial<User> {
+    const user = request?.user as Partial<User>;
+    return user;
   }
 }
