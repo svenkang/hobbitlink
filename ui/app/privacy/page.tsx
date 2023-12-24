@@ -13,7 +13,7 @@ export default function Privacy() {
       <div className="p-12 w-1/2">
         <section className="my-6">
           <h2 className="text-xl font-bold mb-2">1. Introduction</h2>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             Thank you for choosing HobbitLink, the URL shortening service
             provided by Hobbitlink (&quot;we,&quot; &quot;us,&quot; or
             &quot;our&quot;). This Privacy Policy is designed to help you
@@ -25,7 +25,7 @@ export default function Privacy() {
 
         <section className="my-6">
           <h2 className="text-xl font-bold mb-2">2. Collection</h2>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             User Account Information: When you create a user account, we may
             collect personal information such as your name, email address, and
             any other information you provide during the account creation
@@ -38,7 +38,7 @@ export default function Privacy() {
 
         <section className="my-6">
           <h2 className="text-xl font-bold mb-2">3. Usage</h2>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             How We Use Your Information Providing the Service: We use the
             information collected to provide, maintain, and improve the
             functionality of the HobbitLink URL shortener service.
@@ -52,7 +52,7 @@ export default function Privacy() {
 
         <section className="my-6">
           <h2 className="text-xl font-bold mb-2">4. Security</h2>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             We implement reasonable security measures to protect your personal
             information from unauthorized access, disclosure, alteration, and
             destruction.
@@ -61,7 +61,7 @@ export default function Privacy() {
 
         <section className="my-6">
           <h2 className="text-xl font-bold mb-2">5. Changes</h2>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             We reserve the right to update this Privacy Policy to reflect
             changes in our practices and the Service. We will notify you of any
             significant changes through the Service or via email.

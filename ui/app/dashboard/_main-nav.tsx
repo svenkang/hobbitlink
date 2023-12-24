@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
+import { Icons } from '@/components/icons';
 
 export function MainNav({
   className,
@@ -12,25 +13,27 @@ export function MainNav({
       {...props}
     >
       <Link
-        href="/examples/dashboard"
+        href="/dashboard"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
-        Overview
+        Dashboard
       </Link>
+      <div className="text-sm font-medium cursor-default text-muted-foreground flex-row">
+        <span>Campaigns</span>
+        <Icons.lock className="pl-1 h-4 w-4 inline" />
+      </div>
       <Link
-        href="/examples/dashboard"
+        href="/links"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
-        Customers
+        Links
       </Link>
+      <div className="text-sm font-medium cursor-default text-muted-foreground flex-row">
+        <span>Analytics</span>
+        <Icons.lock className="pl-1 h-4 w-4 inline" />
+      </div>
       <Link
-        href="/examples/dashboard"
-        className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-      >
-        Products
-      </Link>
-      <Link
-        href="/examples/dashboard"
+        href="/settings"
         className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
       >
         Settings

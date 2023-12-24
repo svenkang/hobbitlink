@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { SignUpForm } from '@/app/signup/signup-form';
+import { SignUpForm } from './_signup-form';
 import logo from '@/public/logo.svg';
 
 export const metadata: Metadata = {
