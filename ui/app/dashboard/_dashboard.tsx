@@ -9,28 +9,18 @@ import {
   CardTitle,
 } from '@/components/card';
 import { CalendarDateRangePicker } from '@/app/dashboard/_date-ranger-picker';
-import { MainNav } from '@/app/dashboard/_main-nav';
 import { RecentSales } from '@/app/dashboard/_recent-sales';
-import { UserNav } from '@/app/dashboard/_user-nav';
 import { useAuth } from '../(auth)/_useAuth';
 import { Loading } from '@/components/loading';
-import { ModeToggle } from '@/components/mode-toggle';
 import { Overview } from './_overview';
+import { TopNav } from './_top-nav';
 
 function Dashboard() {
   const user = useAuth();
   return user ? (
     <>
       <div className="hidden flex-col md:flex">
-        <div className="border-b">
-          <div className="flex h-16 items-center px-4">
-            <MainNav className="mx-6" />
-            <div className="ml-auto flex items-center space-x-4">
-              <ModeToggle />
-              <UserNav />
-            </div>
-          </div>
-        </div>
+        <TopNav />
         <div className="flex-1 space-y-4 p-8 pt-6">
           <div className="flex items-center justify-between space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
