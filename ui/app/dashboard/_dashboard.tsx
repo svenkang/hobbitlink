@@ -13,7 +13,7 @@ import { RecentSales } from '@/app/dashboard/_recent-sales';
 import { useAuth } from '../(auth)/_useAuth';
 import { Loading } from '@/components/loading';
 import { Overview } from './_overview';
-import { TopNav } from './_top-nav';
+import { TopNav } from '../(nav)/_top-nav';
 
 function Dashboard() {
   const user = useAuth();
